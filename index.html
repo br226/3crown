@@ -52,7 +52,7 @@ button:disabled{opacity:.4}
 'use strict';
 const $=s=>document.querySelector(s),cv=$('#c'),cx=cv.getContext('2d'),bar=$('#bar'),msg=$('#msg'),card=$('#card'),win=$('#win'),tbar=$('#tbar'),tsl=$('#tsl'),tin=$('#tin'),tamt=$('#tamt');
 const OC=['','#c8453b','#3d72c9','#d8a31f'],NAME=['','Player','Atlas','Vega'],FL=[0,0,1,2],COST_MIS=15000,IV=22,FARM_COST=400,MT=[{c:500,r:.4,d:.01,n:"Rocket"},{c:1000,r:.55,d:.025,n:"Missile"},{c:5000,r:.72,d:.06,n:"Heavy"},{c:10000,r:.86,d:.1,n:"Ballistic"},{c:15000,r:1,d:.15,n:"Warhead"}],SPEED=1.4;
-let W=36,H=24,T=20,ox=0,oy=0,dpr=1,now=0,last=0,terr,own,lm,ft,caps,mode='edit',tool=1,cur=1,sol=[0,80,80,80],alive=[0,1,1,1],attacks=[],missiles=[],fx=[],armed=false,pend=null,pendAt=null,drag=null,tap=null,painting=false,paintLast=null,ptr=null,won=0,cardP=0,diff=1,mapType='custom',brush=3,bots=false,shk=-1e9,sprites=[],pops=[],lastSt=0,troops=50,tauto=true,sliding=false,net=null,botSeat=[0,0,1,1],aas=[],ints=[],ifx=[],aaArm=false,aaDrag=false,mid=0,farms=[],farmArm=false,mk=1,autoEnd=true,tpct=50,shkA=1;
+let W=36,H=24,T=20,ox=0,oy=0,dpr=1,now=0,last=0,terr,own,lm,ft,caps,mode='edit',tool=1,cur=1,sol=[0,80,80,80],alive=[0,1,1,1],attacks=[],missiles=[],fx=[],armed=false,pend=null,pendAt=null,drag=null,tap=null,painting=false,paintLast=null,ptr=null,won=0,cardP=0,diff=1,mapType='custom',brush=3,bots=false,shk=-1e9,sprites=[],pops=[],lastSt=0,troops=50,tauto=true,sliding=false,net=null,botSeat=[0,0,1,1],aas=[],ints=[],ifx=[],aaArm=false,aaDrag=false,mid=0,farms=[],farmArm=false,spare=[0,0,0,0],mk=1,autoEnd=true,tpct=50,shkA=1;
 let st={n:[],inc:[],tx:[],ty:[],mul:[1,1,1,1],wsh:[0,0,0,0]};const pos=[0,{x:0,y:0},{x:0,y:0},{x:0,y:0}];
 const D4=[[1,0],[-1,0],[0,1],[0,-1]],idx=(x,y)=>y*W+x,inb=(x,y)=>x>=0&&y>=0&&x<W&&y<H;
 
@@ -100,16 +100,24 @@ function paint(x,y,mv){
   const p=+tool[1],o=capAt(i);if(o&&o!==p)caps[o]=null;caps[p]={x,y};terr[i]=1;lm[i]=0;return}
  const r=brush;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){if(dx*dx+dy*dy>r*r+r*.6)continue;const a=x+dx,b=y+dy;if(!inb(a,b))continue;const j=idx(a,b);if(capAt(j))continue;terr[j]=tool;if(lm[j]&&!(lm[j]===3?tool===2:tool===1))lm[j]=0}
 }
+function autoSpare(){
+ const seen=new Uint8Array(W*H),q=[idx(caps[1].x,caps[1].y)];seen[q[0]]=1;
+ for(let h=0;h<q.length;h++){const i=q[h],x=i%W,y=(i/W)|0;for(const d of D4){const a=x+d[0],b=y+d[1];if(inb(a,b)){const j=idx(a,b);if(!seen[j]&&terr[j]){seen[j]=1;q.push(j)}}}}
+ let best=-1,bd=-1;for(const i of q){if(terr[i]!==1||lm[i])continue;const x=i%W,y=(i/W)|0,d=Math.min(Math.hypot(x-caps[1].x,y-caps[1].y),Math.hypot(x-caps[2].x,y-caps[2].y));if(d>bd){bd=d;best=i}}
+ if(best>=0)caps[3]={x:best%W,y:(best/W)|0}
+}
 function connected(){
  const seen=new Uint8Array(W*H),q=[idx(caps[1].x,caps[1].y)];seen[q[0]]=1;
  for(let h=0;h<q.length;h++){const i=q[h],x=i%W,y=(i/W)|0;for(const d of[[1,0],[-1,0],[0,1],[0,-1]]){const a=x+d[0],b=y+d[1];if(inb(a,b)){const j=idx(a,b);if(!seen[j]&&terr[j]){seen[j]=1;q.push(j)}}}}
  return seen[idx(caps[2].x,caps[2].y)]&&seen[idx(caps[3].x,caps[3].y)]
 }
 function start(){
+ if(!net||!net.roster)spare=[0,0,0,0];
+ if(spare[3]&&!caps[3]&&caps[1]&&caps[2])autoSpare();
  if(!caps[1]||!caps[2]||!caps[3])return flash('Place all three capitals first');
  if(!connected())return flash('Connect the capitals with land or water');
- assign();$("#menu").hidden=true;own.fill(0);ft.fill(-1e9);sol=[0,100,100,100];alive=[0,1,1,1];attacks=[];missiles=[];fx=[];sprites=[];pops=[];aas=[];ints=[];ifx=[];aaArm=false;farms=[];farmArm=false;armed=false;pend=null;won=0;cur=net?net.seat:1;mode='play';if(net)net.elim=0;hideCard();win.hidden=true;
- for(let p=1;p<4;p++){const c=caps[p];for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=c.x+dx,y=c.y+dy;if(inb(x,y)&&terr[idx(x,y)]===1&&!own[idx(x,y)])own[idx(x,y)]=p}own[idx(c.x,c.y)]=p}
+ assign();$("#menu").hidden=true;own.fill(0);ft.fill(-1e9);sol=[0,100,100,100];alive=[0,1,1,1].map((v,p)=>p&&spare[p]?0:v);for(let p=1;p<4;p++)if(spare[p])sol[p]=0;attacks=[];missiles=[];fx=[];sprites=[];pops=[];aas=[];ints=[];ifx=[];aaArm=false;farms=[];farmArm=false;armed=false;pend=null;won=0;cur=net?net.seat:1;mode='play';if(net)net.elim=0;hideCard();win.hidden=true;
+ for(let p=1;p<4;p++){if(spare[p])continue;const c=caps[p];for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=c.x+dx,y=c.y+dy;if(inb(x,y)&&terr[idx(x,y)]===1&&!own[idx(x,y)])own[idx(x,y)]=p}own[idx(c.x,c.y)]=p}
  stats();for(let p=1;p<4;p++)pos[p]={x:st.tx[p],y:st.ty[p]};ui();hint();setTimeout(lmTip,300);if(net&&net.role==='host')hostStarted()
 }
 
@@ -454,7 +462,7 @@ function netLeave(){if(!net)return;const n=net;net=null;try{if(n.role==='guest')
 function netSendOn(n,ev,payload){try{const r=n.ch.send({type:'broadcast',event:ev,payload});if(r&&r.catch)r.catch(()=>{})}catch(e){}}
 function mpCreate(){
  const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let code='';for(let i=0;i<4;i++)code+=A[(Math.random()*A.length)|0];
- netLeave();net={role:'host',code,id:myId,seat:1,players:[{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),seen:0}],map:'random',started:false,drawing:false,roster:null,lastSnap:0,bc:[0,0,0,0],gid:'',elim:0};bots=false;
+ netLeave();net={role:'host',code,id:myId,seat:1,players:[{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),seen:0}],map:'random',started:false,drawing:false,roster:null,lastSnap:0,bc:[0,0,0,0],gid:'',elim:0,fill:0};bots=false;
  netErr('Connecting...');
  net.ch=netConnect(code,()=>{if(!net)return;menuView('lobby');net.tick=setInterval(()=>{if(!net)return;if(!net.started){const t=performance.now();net.players=net.players.filter(x=>x.id===myId||t-x.seen<8000)}sendLobby()},2000)});
  if(!net.ch)net=null
@@ -467,21 +475,22 @@ function mpJoin(){
  if(!net.ch)net=null
 }
 function sendHello(){if(net)netSend('hello',{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),have:net.gid||''})}
-function lobbyMsg(){return{code:net.code,players:net.players.map(x=>({id:x.id,n:x.n,f:x.f})),map:net.map,diff,started:net.started,drawing:net.drawing}}
+function lobbyMsg(){return{code:net.code,players:net.players.map(x=>({id:x.id,n:x.n,f:x.f})),map:net.map,diff,fill:net.fill?1:0,started:net.started,drawing:net.drawing}}
 function sendLobby(){if(net&&net.role==='host')netSend('lobby',lobbyMsg())}
 function lobbyHTML(){
  const host=net.role==='host',L=host?lobbyMsg():(net.lobby||{players:[],map:'random',diff:1,code:net.code});
  let h=`<p>Room code</p><h1 style="letter-spacing:8px;margin:0">${esc(L.code)}</h1><p>Share this code with your brothers</p>`;
- for(let i=0;i<3;i++){const x=L.players[i];h+=x?`<div class="pr"><canvas data-pf="${cleanFlag(x.f)}" width="36" height="24"></canvas>${esc(cleanName(x.n))}${i===0?' (host)':''}</div>`:'<div class="pr" style="opacity:.5">Empty seat (bot)</div>'}
- if(host)h+=`<p>Map</p><div class="seg">${[['random','Random'],['world','World'],['draw','Draw']].map(k=>`<button data-a="mpmap" data-t="${k[0]}" class="${L.map===k[0]?'on':''}">${k[1]}</button>`).join('')}</div><p>Bots fill empty seats</p><div class="seg">${['Easy','Normal','Hard'].map((k,i)=>`<button data-a="mpdiff" data-t="${i}" class="${diff===i?'on':''}">${k}</button>`).join('')}</div><button class="pri" data-a="mpstart">Start game</button>`;
+ for(let i=0;i<3;i++){const x=L.players[i];h+=x?`<div class="pr"><canvas data-pf="${cleanFlag(x.f)}" width="36" height="24"></canvas>${esc(cleanName(x.n))}${i===0?' (host)':''}</div>`:`<div class="pr" style="opacity:.5">Empty seat${L.fill?' (bot)':''}</div>`}
+ if(host)h+=`<p>Map</p><div class="seg">${[['random','Random'],['world','World'],['draw','Draw']].map(k=>`<button data-a="mpmap" data-t="${k[0]}" class="${L.map===k[0]?'on':''}">${k[1]}</button>`).join('')}</div><p>Bot fill (bots take empty seats)</p><div class="seg">${['Off','On'].map((k,i)=>`<button data-a="mpfill" data-t="${i}" class="${(L.fill?1:0)===i?'on':''}">${k}</button>`).join('')}</div>${L.fill?`<p>Bot difficulty</p><div class="seg">${['Easy','Normal','Hard'].map((k,i)=>`<button data-a="mpdiff" data-t="${i}" class="${diff===i?'on':''}">${k}</button>`).join('')}</div>`:`<p>${L.players.length<2?'Waiting for a second player (or turn Bot fill on)':'Starts as a '+L.players.length+'-player game'}</p>`}<button class="pri" data-a="mpstart">Start game</button>`;
  else h+=`<p>${L.drawing?'The host is drawing the map...':'Waiting for the host to start...'}</p>`;
  return h+'<button data-a="mpleave">Leave</button><p id="mn"></p>'
 }
 function hostBegin(){
  if(!net||net.role!=='host')return;
+ if(net.players.length<2&&!net.fill)return netErr('Need a second player, or turn Bot fill on');
  const R=[],used=new Set();for(const pl of net.players){let f=pl.f;while(used.has(f))f=(f+1)%FLAGS.length;used.add(f);R.push({id:pl.id,n:pl.n,f,bot:0})}
- let bi=0;while(R.length<3){let f=0;while(used.has(f))f++;used.add(f);R.push({id:null,n:BN[bi++],f,bot:1})}
- net.roster=R;botSeat=[0,R[0].bot,R[1].bot,R[2].bot];net.bc=[0,2,2,2];$('#menu').hidden=true;
+ let bi=0;while(R.length<3){let f=0;while(used.has(f))f++;used.add(f);R.push(net.fill?{id:null,n:BN[bi++],f,bot:1}:{id:null,n:'Empty',f,bot:0,sp:1})}
+ net.roster=R;botSeat=[0,R[0].bot,R[1].bot,R[2].bot];spare=[0,R[0].sp|0,R[1].sp|0,R[2].sp|0];net.bc=[0,2,2,2];$('#menu').hidden=true;
  if(net.map==='draw'){net.drawing=true;sendLobby();setGrid(...customGrid());mode='edit';tool=1;ui();hint();return}
  net.drawing=false;setGrid(...customGrid());
  if(net.map==='world'){buildWorld();const land=[];for(let i=0;i<W*H;i++)if(terr[i]===1)land.push(i);const t=land[(Math.random()*land.length)|0],P=spread(t%W,(t/W)|0);caps=[null,P[0],P[1],P[2]]}
@@ -511,7 +520,7 @@ function hostAct(p){
 function beginGuest(p){
  const r=Array.isArray(p.r)?p.r:[],i=r.findIndex(x=>x&&x.id===myId);
  if(i<0){netLeave();menuView('mp');netErr('That game already started.');return}
- net.gid=p.gid;net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0}));net.seat=i+1;
+ net.gid=p.gid;net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0,sp:x.sp?1:0}));net.seat=i+1;spare=[0,...net.roster.map(x=>x.sp)];
  setGrid(p.W|0,p.H|0);terr.set(Uint8Array.from(String(p.t),c=>+c));lm.fill(0);{const L=p.l||[];for(let k=0;k+1<L.length;k+=2)lm[L[k]]=(L[k+1]|0)&3}
  caps=[null,...p.c.map(c=>({x:c[0],y:c[1]}))];botSeat=[0,...net.roster.map(x=>x.bot)];assign();
  $('#menu').hidden=true;win.hidden=true;hideCard();
@@ -583,7 +592,7 @@ function showCard(p){cardP=p;card.innerHTML=`<canvas id="cf" width="36" height="
 function hideCard(){cardP=0;card.hidden=true}
 function act(a,t){
  if(bots&&mode==='play'&&cur!==1&&(a==='go'||a==='mis'||a==='aa'||a==='farm'||a==='end'))return;
- const M={play:()=>menuView('play'),flags:()=>menuView('flags'),back:()=>menuView('main'),multi:()=>menuView('mp'),mpcreate:()=>mpCreate(),mpjoin:()=>mpJoin(),mpleave:()=>{netLeave();menuView('main')},mpstart:()=>hostBegin(),mpmap:()=>{if(net&&net.role==='host'){net.map=t;sendLobby();menuView('lobby')}},mpdiff:()=>{if(net&&net.role==='host'){diff=+t;sendLobby();menuView('lobby')}},
+ const M={play:()=>menuView('play'),flags:()=>menuView('flags'),back:()=>menuView('main'),multi:()=>menuView('mp'),mpcreate:()=>mpCreate(),mpjoin:()=>mpJoin(),mpleave:()=>{netLeave();menuView('main')},mpstart:()=>hostBegin(),mpmap:()=>{if(net&&net.role==='host'){net.map=t;sendLobby();menuView('lobby')}},mpfill:()=>{if(net&&net.role==='host'){net.fill=+t?1:0;sendLobby();menuView('lobby')}},mpdiff:()=>{if(net&&net.role==='host'){diff=+t;sendLobby();menuView('lobby')}},
   map:()=>{mapType=t;menuView('play')},diff:()=>{diff=+t;menuView('play')},
   saveflag:()=>{me.n=($('#nm').value||'').trim().slice(0,12)||'Player';try{localStorage.setItem('tc3',JSON.stringify(me))}catch(e){}menuView('main')},
   max:()=>{tpct=100;replan()},cont:()=>{$('#menu').hidden=true;bots=true;assign();if(mapType==='world'){buildWorld();mode='pick'}else{setGrid(...customGrid());mode='edit'}tool=1;ui();hint()}};
