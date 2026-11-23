@@ -74,7 +74,7 @@ button:active:not(:disabled){transform:scale(.95)}
 #zoom button.on{background:#e6edf2;color:#101a22}
 button.warn{border-color:#e5483c;color:#e5483c;animation:pl 1s infinite}
 @keyframes pl{50%{background:rgba(229,72,60,.22)}}
-#set,#rgd,#tl,#dipo{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;background:rgba(8,12,16,.72)}
+#set,#rgd,#tl{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;background:rgba(8,12,16,.72)}
 #set[hidden],#rgd[hidden],#tl[hidden],#dipo[hidden]{display:none}
 .box{display:flex;flex-direction:column;gap:10px;padding:18px;background:#18222b;color:#e6edf2;border:1px solid #2b3946;border-radius:12px;width:min(340px,92vw);box-sizing:border-box}
 .box b{font-size:22px}.box button{width:100%;color:#e6edf2;border-color:#2b3946;min-height:48px;white-space:normal}
@@ -118,8 +118,42 @@ button.warn{border-color:#e5483c;color:#e5483c;animation:pl 1s infinite}
 .us{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.us canvas{width:78px;height:52px;border:2px solid transparent;border-radius:5px;cursor:pointer;transition:transform .15s,border-color .15s}.us canvas:hover{transform:translateY(-2px)}.us canvas.on{border-color:#e0b422;transform:scale(1.06)}
 .dr .row{display:flex;gap:6px;flex-wrap:wrap}.dr .row button{flex:1;min-width:110px}
 @keyframes ringp{from{opacity:.9}to{opacity:0}}
+#dipo{position:absolute;right:8px;top:44px;z-index:30;width:min(350px,94vw);max-height:calc(100% - 150px);overflow:auto;background:rgba(14,22,30,.97);border:1px solid #2b3946;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.55);padding:10px;color:#e6edf2;font-size:14px;animation:rise .25s both;-webkit-overflow-scrolling:touch}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:18px;color:#fff}.dh button{min-height:34px;width:38px;padding:0}
+.dpr{display:flex;align-items:center;gap:8px;padding:8px;border-radius:10px;cursor:pointer;background:#18222b;margin-bottom:6px;transition:background .15s,transform .15s}.dpr:hover{background:#1f2c37}.dpr:active{transform:scale(.98)}
+.dpr img{width:30px;height:20px;border-radius:3px;flex:none}.dpr b{flex:1;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dpr .pc{opacity:.7;font-size:12px}
+.st{font-size:12px;padding:2px 8px;border-radius:999px;background:#2b3946;white-space:nowrap}.st.war{background:#5a2323}.st.cf{background:#5a4a1e}.st.al{background:#1f4d33}.st.un{background:#2c3f66}.st.lv{background:#4a3d6b}
+.dpx{margin:-2px 0 8px;padding:8px;border-radius:10px;background:#131c24;display:flex;flex-direction:column;gap:8px;animation:rise .2s both}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:6px}.acts button{min-height:42px;padding:0 6px;font-size:14px}.acts .full{grid-column:1/-1}
+.of{background:rgba(127,212,255,.1);border:1px solid #7fd4ff;border-radius:10px;padding:8px;margin-bottom:8px;display:flex;flex-direction:column;gap:6px}.of .r{display:flex;gap:6px}.of .r button{flex:1;min-height:40px}
+.uc{background:rgba(224,180,34,.1);border:1px solid #e0b422;border-radius:10px;padding:8px;margin-bottom:8px;display:flex;flex-direction:column;gap:6px}
+.uc .m{display:flex;align-items:center;gap:8px}.uc .m img{width:28px;height:19px;border-radius:3px}.uc .m span{flex:1}.uc .m button{min-height:34px;padding:0 10px}
+.dpx small,.uc small,.of small{color:#9fb0bd;font-size:12px;line-height:1.35}.dpx input{font:inherit;font-size:16px;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid #2b3946;background:#18222b;color:#e6edf2}
+
+#mbx{position:absolute;left:50%;top:50px;transform:translateX(-50%);z-index:12;display:flex;flex-direction:column;gap:6px;max-width:94%}
+#mbx[hidden],#scr[hidden]{display:none}
+#mbx .mi{background:rgba(14,22,30,.97);border:2px solid #e8c77a;border-radius:12px;padding:8px 10px;color:#fff;font-size:15px;display:flex;gap:9px;align-items:center;animation:mslide .45s cubic-bezier(.2,1.2,.4,1);box-shadow:0 8px 24px rgba(0,0,0,.5)}
+#mbx .mi img{width:30px;height:20px;border-radius:3px}#mbx .mi button{min-height:36px;padding:0 14px}
+@keyframes mslide{from{opacity:0;transform:translateY(-18px) scale(.9)}to{opacity:1;transform:none}}
+#scr{position:absolute;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);animation:fdin .25s}
+@keyframes fdin{from{opacity:0}to{opacity:1}}
+.sc{width:min(450px,92vw);display:flex;flex-direction:column;align-items:stretch;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.sc .rod{height:24px;border-radius:12px;margin:0 -9px;position:relative;z-index:2;background:linear-gradient(#8a5a28,#e8bf7a 42%,#a8743a 70%,#6d4520);box-shadow:0 3px 6px rgba(0,0,0,.45)}
+.sc .rod:before,.sc .rod:after{content:"";position:absolute;top:-3px;width:14px;height:30px;border-radius:7px;background:linear-gradient(#6d4520,#c99a55,#6d4520)}
+.sc .rod:before{left:-5px}.sc .rod:after{right:-5px}
+.sc .pp{margin:0 6px;overflow:hidden;height:0;background:linear-gradient(90deg,#dcc088,#f6e7c0 12%,#f6e7c0 88%,#d8ba7e);box-shadow:inset 0 8px 10px -8px rgba(80,50,10,.5),inset 0 -8px 10px -8px rgba(80,50,10,.5)}
+.sc .in{padding:18px 22px 14px;color:#3a2a14;opacity:0;transition:opacity .6s .75s}.sc.go .in{opacity:1}
+.sc .fr{display:flex;align-items:center;gap:9px;font:700 18px "Barlow Condensed",Georgia,serif;letter-spacing:.04em;color:#6b4a1c;border-bottom:1px solid rgba(107,74,28,.35);padding-bottom:8px;margin-bottom:10px}
+.sc .fr img{width:34px;height:23px;border-radius:3px;border:1px solid rgba(0,0,0,.4)}
+.sc .tx{font:italic 20px/1.5 Georgia,"Times New Roman",serif;white-space:pre-wrap;overflow-wrap:anywhere;max-height:44vh;overflow:auto}
+.sc .bt{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}.sc .bt button{background:#6b4a1c;color:#fbeecb;border:0;border-radius:9px;min-height:40px;padding:0 16px;font-weight:700;font-size:15px}.sc .bt button.g{background:transparent;color:#6b4a1c;border:1px solid #6b4a1c}
+.dpx textarea{font:inherit;font-size:16px;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid #2b3946;background:#18222b;color:#e6edf2;resize:vertical;min-height:84px}
+.dpx .wc{font-size:12px;color:#9fb0bd;text-align:right}.dpx .wc.bad{color:#ff8a7a}
+.dpx .qk{display:flex;gap:6px}.dpx .qk button{flex:1;min-height:34px}
+.mlist .m{cursor:pointer}.mlist .m b.n{background:#e8c77a;color:#2a1c10;border-radius:9px;padding:0 6px;font-size:12px}
+#dipo button:not(.pri){color:#e6edf2;border-color:#3a4a58;background:#18222b}#dipo button:not(.pri):active{background:#26343f}
 </style></head><body>
-<div id="stage"><canvas id="c"></canvas><div id="msg"></div><div id="card" hidden></div><div id="hud" hidden></div><div id="lb" hidden></div><div id="news"></div><div id="zoom" hidden><button data-a="zin">+</button><button data-a="zout">&minus;</button><button data-a="zme">&#9678;</button><button id="bPan" data-a="pan">&#9995;</button></div><div id="win" hidden></div><div id="set" hidden></div><div id="tl" hidden></div><div id="dipo" hidden></div><div id="toast" hidden></div><div id="prop"></div><div id="rgd" hidden><div class="box"><b id="rgt">New city / state</b><input id="rgn" maxlength="18" placeholder="Name it" autocomplete="off"><div class="seg"><button data-a="rgk" data-t="city" id="rgkc" class="on">City</button><button data-a="rgk" data-t="state" id="rgks">State</button></div><div class="seg"><button class="pri" data-a="rgok" id="rgok">Publish</button><button data-a="rgx">Cancel</button></div><button data-a="rgdel" id="rgdel" hidden style="border-color:#e5483c;color:#ff9d94">Delete</button></div></div></div>
+<div id="stage"><canvas id="c"></canvas><div id="msg"></div><div id="card" hidden></div><div id="hud" hidden></div><div id="lb" hidden></div><div id="news"></div><div id="mbx" hidden></div><div id="scr" hidden></div><div id="zoom" hidden><button data-a="zin">+</button><button data-a="zout">&minus;</button><button data-a="zme">&#9678;</button><button id="bPan" data-a="pan">&#9995;</button></div><div id="win" hidden></div><div id="set" hidden></div><div id="tl" hidden></div><div id="dipo" hidden></div><div id="toast" hidden></div><div id="prop"></div><div id="rgd" hidden><div class="box"><b id="rgt">New city / state</b><input id="rgn" maxlength="18" placeholder="Name it" autocomplete="off"><div class="seg"><button data-a="rgk" data-t="city" id="rgkc" class="on">City</button><button data-a="rgk" data-t="state" id="rgks">State</button></div><div class="seg"><button class="pri" data-a="rgok" id="rgok">Publish</button><button data-a="rgx">Cancel</button></div><button data-a="rgdel" id="rgdel" hidden style="border-color:#e5483c;color:#ff9d94">Delete</button></div></div></div>
 <div id="tbar" hidden><span>Troops</span><input id="tsl" type="range" min="1" max="100" value="50"><input id="tin" type="number" inputmode="numeric" min="1" max="100"><span>%</span><span id="tamt"></span><button data-a="max">Max</button></div><div id="mpanel" hidden></div><div id="bar"></div><div id="menu"></div><canvas id="mbg" width="800" height="388"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -155,7 +189,11 @@ function reduce(a){
   for(const i of t)if(!Number.isInteger(i)||own[i]!==a.p||terr[i]!==1||rgMap[i])return;
   const r=mkRegion(++rgid,a.p,cleanRg(a.n),a.k==='state'?'state':'city',t);regions.push(r);rgv++;rgRebuild();GS.cities[a.p]++;emit('rg',a.p,0,r.n)}
  else if(a.type==='dip'){const p=a.p,q=a.to|0,op=a.op;if(op==='sec'){if(q>=1&&q<=NP&&uniOf[q]&&(p===q||p===uniOf[q]))secede(q);return}
-  if(!(q>=1&&q<=NP)||q===p||!alive[p]||!alive[q])return;
+  if(op==='msg'){const s=cleanMsg(a.tx);if(!s||!(q>=1&&q<=NP)||q===p||!(p>=1&&p<=NP)||!alive[p]||!alive[q]||uniOf[p]||uniOf[q]||!caps[p]||!caps[q]||now<msgCd[p])return;msgCd[p]=now+6000;sendMsgr(p,q,s);return}
+  if(op==='sup'){if(!(q>=1&&q<=NP)||q===p||!(p>=1&&p<=NP)||!alive[p]||!alive[q]||uniOf[p]||(uniOf[q]&&uniOf[q]!==p)||!(pact(p,q)===2)||now<supCd[p])return;
+   const room=Math.max(0,capSol(q)-Math.floor(sol[q])),n=Math.min(Math.floor(+a.n)||0,Math.floor(sol[p])-1,room);if(!(n>=1))return;supCd[p]=now+1500;sol[p]-=n;sol[q]+=n;emit('sup',p,q,String(n));return}
+  if(!(q>=1&&q<=NP)||q===p||!alive[p]||!alive[q]||uniOf[p]||uniOf[q])return;
+  if(op==='cx'){props=props.filter(x=>!(x.a===p&&x.b===q));return}
   if(op==='uni'||op==='mrg'){const k=op==='uni'?3:4;if(ctl[p]||ctl[q]||props.some(x=>(x.a===p&&x.b===q)||(x.a===q&&x.b===p))||now<dipCD[p])return;const nm=cleanRg(a.nm||('Union of '+NAME[p])),fg=String(a.fg||'').slice(0,24);const ok=/^f\d{1,3}$/.test(fg)||/^u[0-4]:\d{1,3}:(0|[0-9a-fA-F]{6})$/.test(fg);props.push({a:p,b:q,k,exp:now+30000,t0:now,nm,fg:ok?fg:'f'+FL[p]});return}
   if(op==='cf'||op==='al'){const k=op==='cf'?1:2;if(pact(p,q)>=k||pact(p,q)===3||props.some(x=>(x.a===p&&x.b===q)||(x.a===q&&x.b===p))||now<dipCD[p])return;props.push({a:p,b:q,k,exp:now+30000,t0:now})}
   else if(op==='yes'||op==='no'){const i=props.findIndex(x=>x.a===q&&x.b===p);if(i<0)return;const pr=props.splice(i,1)[0];if(op==='no')emit('dno',p,q,'');else applyDeal(pr)}
@@ -256,11 +294,11 @@ function flip(p,i){
  const c=capAt(i);if(c&&c!==p&&alive[c])eliminate(c,p,i)
 }
 function eliminate(c,p,i){
- for(const m of memOf(c)){if(own&&orig[m]){const tl=[];for(let j=0;j<W*H;j++)if(own[j]===c&&sub[j]===m)tl.push(j);uniOf[m]=0;ctl[m]=0;if(tl.length){alive[m]=1;sol[m]=Math.floor(sol[c]*.2);sol[c]-=sol[m];NAME[m]=orig[m].n;FL[m]=orig[m].f;OC[m]=orig[m].c;for(const j of tl){own[j]=m;sub[j]=0}if(caps[m])ring(caps[m].x+.5,caps[m].y+.5,OC[m],2)}}}
+ for(const m of memOf(c))secede(m);
  alive[c]=0;GS.kills[p]++;emit('conq',p,c);sol[p]+=Math.floor(sol[c]/2);sol[c]=0;const cx0=i%W,cy0=(i/W)|0,q=[];
  for(let j=0;j<W*H;j++)if(own[j]===c)q.push({i:j,k:Math.hypot(j%W-cx0,((j/W)|0)-cy0)*.7+Math.random()*.9,pay:0});
  attacks.push({p,done:[],src:[],force:0,free:true,m:2,thr:0,stall:false,ls:0,lp:0,q});
- if(alive.reduce((s,v)=>s+v,0)===1){won=p;setTimeout(()=>{if(net&&net.role==='host')netSend('end',{gs:GS});showWin(p)},1800)}
+ checkWin()
 }
 /* ---- Stats, timeline, badges, results, missile limits, diplomacy ---- */
 const newGS=()=>({cap:Z(),peakN:Z(),peakInc:Z(),fired:Z(),icpt:Z(),pushed:Z(),cities:Z(),kills:Z(),water:Z(),mecca:Z(),pacts:Z(),betray:Z(),peakPort:Z(),peakRig:Z(),behind:Z(),lost:Z()});
@@ -274,28 +312,29 @@ function landTot(){if(!landN){for(let i=0;i<W*H;i++)if(terr[i]===1)landN++}retur
 function mRecent(p){if(net&&net.role==='guest')return mrcS[p]||0;const L=mlog[p];while(L.length&&now-L[0]>60000)L.shift();return L.length}
 const mCost=(p,k)=>Math.round(MT[k].c*(1+.3*Math.min(5,mRecent(p))));
 const mWait=p=>Math.max(0,mcdU[p]-now);
-const pact=(a,b)=>a===b?0:dipS[a][b];
+const grp=p=>uniOf[p]||p,pact=(a,b)=>{if(a===b)return 0;const x=grp(a),y=grp(b);return x===y?2:dipS[x][y]};
 function setPact(a,b,st_,exp){dipS[a][b]=dipS[b][a]=st_;dipE[a][b]=dipE[b][a]=exp}
+function purgeAttacks(){for(const A of attacks)A.q=A.q.filter(e=>!own[e.i]||pact(A.p,own[e.i])===0)}
 function applyPact(a,b,k){
  setPact(a,b,k,k===1?now+120000:0);props=props.filter(x=>!((x.a===a&&x.b===b)||(x.a===b&&x.b===a)));
- for(const A of attacks){if(A.p===a||A.p===b){const o=A.p===a?b:a;A.q=A.q.filter(e=>own[e.i]!==o)}}
+ purgeAttacks();
  GS.pacts[a]++;GS.pacts[b]++;emit('pact',a,b,k===1?'ceasefire':'alliance')
 }
-function blockMsg(tiles){const me=hp();for(const i of tiles){const o=own[i];if(o&&o!==me){if(pact(me,o)>=1)return'You have a treaty with '+NAME[o]+'. Open Diplomacy to end it first.';if(longG&&now-gT0<SHIELD)return'Spawn shield: players cannot attack each other for another '+Math.ceil((SHIELD-(now-gT0))/1000)+'s.'}}return''}
+function blockMsg(tiles){const me=hp();for(const i of tiles){const o=own[i];if(o&&o!==me){if(grp(me)===grp(o))return NAME[o]+' is in your union, so you cannot attack them.';if(pact(me,o)>=1)return'Your union has a treaty with '+NAME[o]+'. Ask the leader to end it first.';if(longG&&now-gT0<SHIELD)return'Spawn shield: players cannot attack each other for another '+Math.ceil((SHIELD-(now-gT0))/1000)+'s.'}}return''}
 function dipTick(){
  if(net&&net.role==='guest')return;if(now-dipT0<500)return;dipT0=now;
  for(let a=1;a<=NP;a++)for(let b=a+1;b<=NP;b++){const s_=dipS[a][b];if((s_===1||s_===3)&&now>=dipE[a][b]){setPact(a,b,0,0);if(s_===1)emit('cfend',a,b,'')}}
  props=props.filter(x=>now<x.exp&&alive[x.a]&&alive[x.b]);
  for(const x of props.slice()){if(botSeat[x.b]&&now-x.t0>1800){const A=st.n[x.a]||1,B=st.n[x.b]||1,ok=x.k===1?(B<A*1.15||Math.random()<.3):x.k===2?(B<A&&Math.random()<.35):x.k===3?(B<A*.6&&Math.random()<.6):(B<A*1.1&&B>A*.35&&Math.random()<.5);props.splice(props.indexOf(x),1);if(ok)applyDeal(x);else emit('dno',x.b,x.a,'')}}
- for(const m of PL()){const L=uniOf[m];if(!L||!botSeat[m]||now-uniT[m]<90000||now-(uniT[m+100]||0)<6000)continue;uniT[m+100]=now;if(Math.random()<.04+(((st.n[L]||1)<(sub?memTiles(m,L):0)*1.2)?.08:0))secede(m)}
+ for(const m of PL()){const L=uniOf[m];if(!L||!botSeat[m]||!alive[m]||now-uniT[m]<90000||now-uniChk[m]<6000)continue;uniChk[m]=now;if(Math.random()<.015+(((st.n[m]||1)>(st.n[L]||1)*1.2)?.05:0))secede(m)}
  if(bots||net){for(let b=1;b<=NP;b++){if(!botSeat[b]||!alive[b]||now-botPT[b]<(NP>6?60000:25000))continue;botPT[b]=now+Math.random()*15000;
-  for(let h=1;h<=NP;h++){if(botSeat[h]||!alive[h]||h===b)continue;if(pact(b,h)===0&&!props.some(x=>(x.a===b&&x.b===h)||(x.a===h&&x.b===b))&&(st.n[b]||0)<(st.n[h]||0)*.85&&Math.random()<.5){props.push({a:b,b:h,k:Math.random()<.2?2:1,exp:now+30000,t0:now});break}}}}
- const al=PL().filter(q=>alive[q]);
+  for(let h=1;h<=NP;h++){if(botSeat[h]||!alive[h]||h===b)continue;if(!uniOf[b]&&!uniOf[h]&&pact(b,h)===0&&!props.some(x=>(x.a===b&&x.b===h)||(x.a===h&&x.b===b))&&(st.n[b]||0)<(st.n[h]||0)*.85&&Math.random()<.5){props.push({a:b,b:h,k:Math.random()<.2?2:1,exp:now+30000,t0:now});break}}}}
+ const al=PL().filter(q=>alive[q]&&!uniOf[q]);
  if(al.length===2&&dipS[al[0]][al[1]]===2){if(!collT){collT=now+45000;emit('collapse',al[0],al[1],'')}else if(now>=collT){setPact(al[0],al[1],0,0);collT=0;emit('brk',al[0],al[1],'collapse')}}else collT=0
 }
 
 /* ---- Unions & mergers ---- */
-let evBoom=0,domP=0,domT=0,sub=null,uniOf=Z(),uniT=Z(),uniLv=Z(),orig=[],rings=[],dipForm=null,FLK=new Map(),FU=new Map(),lbK='',lbOpen=true,lbT=0,evT=0,evNext=0;
+let evBoom=0,domP=0,domT=0,sub=null,uniCnt=Z(),uniChk=Z(),uniOf=Z(),uniT=Z(),uniLv=Z(),orig=[],rings=[],dipForm=null,msgrs=[],inbox=[],mgid=0,msgCd=Z(),supCd=Z(),FLK=new Map(),FU=new Map(),lbK='',lbOpen=true,lbT=0,evT=0,evNext=0;
 const UST=['Soviet','Federation','Banner','Crown','Star Ring'];
 const hex2=(h)=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];
 const lighten=(h,a)=>{const c=hex2(h);return'#'+c.map(v=>Math.round(v+(255-v)*a).toString(16).padStart(2,'0')).join('')};
@@ -327,41 +366,45 @@ const memOf=l=>PL().filter(m=>uniOf[m]===l);
 function ring(x,y,col,big){rings.push({x,y,col,t0:now,big:big||1})}
 function setSeatLook(L,name,key){NAME[L]=cleanRg(name);FL[L]=seatFlag(key);FLS[L]=key}
 const FLS=Z().map(()=>'');
+function recolor(m){const L=uniOf[m];if(L&&orig[m])OC[m]=lighten(OC[L],lvA(uniLv[m]||1))}
+function checkWin(){if(won)return;const g=new Set(PL().filter(q=>alive[q]).map(grp));if(g.size===1){const w=[...g][0];won=w;setTimeout(()=>{if(net&&net.role==='host')netSend('end',{gs:GS});showWin(w)},1800)}}
 function absorb(L,m,kind,name,spec){
- if(!orig[m])orig[m]={n:NAME[m],f:FL[m],c:OC[m]};if(!orig[L])orig[L]={n:NAME[L],f:FL[L],c:OC[L]};
- const hadM=memOf(m);let moved=0;
- for(let i=0;i<W*H;i++)if(own[i]===m){own[i]=L;ft[i]=now;moved++;if(kind==='u')sub[i]=m}
- if(kind==='u'){for(const k of hadM){uniOf[k]=L}uniOf[m]=L;uniT[m]=now;uniLv[m]=memOf(L).filter(x=>x!==m).length+1}else{uniOf[m]=0;for(const k of hadM){uniOf[k]=L}}
- for(const A of attacks)if(A.p===m)A.p=L;
- sol[L]+=sol[m];sol[m]=0;alive[m]=0;ctl[m]=L;for(const k of hadM)ctl[k]=L;
+ if(!orig[m])orig[m]={n:NAME[m],f:FL[m],c:OC[m]};
+ const hadM=memOf(m);
  for(let o=0;o<MP;o++){dipS[m][o]=dipS[o][m]=0;dipE[m][o]=dipE[o][m]=0}
  props=props.filter(x=>x.a!==m&&x.b!==m);
-  NAME[L]=cleanRg(name);FL[L]=seatFlag(spec);FLS[L]=spec;
- if(kind==='m'){OC[L]=FLAGS[FL[L]].k;OC[m]=OC[L];NAME[m]=NAME[L];FL[m]=FL[L];FLS[m]=FLS[L]}
- if(kind==='u'){const q=spec.split(':'),mk_=spec[0]==='u'?specOf(+q[0].slice(1),q[1],orig[m].c.slice(1)):specOf(0,FL[L]<NF?FL[L]:0,orig[m].c.slice(1));FL[m]=seatFlag(mk_);FLS[m]=mk_;NAME[m]=orig[m].n}
- if(caps[m]){ring(caps[m].x+.5,caps[m].y+.5,OC[L],kind==='u'?1:1.4);boom(caps[m].x+.5,caps[m].y+.5,.9);shk=now}
- GS.pacts[L]++;lbK='';
- emit(kind==='u'?'uni':'mrg',L,m,NAME[L]);
- if(!botSeat[L]||!botSeat[m]){const h=hp();if(h===L||h===m)toast((kind==='u'?'\u{1F6A9} Union formed: ':'\u{1F91D} Merged into: ')+esc(NAME[L]),4200)}
+ if(kind==='u'){
+  const q=String(spec).split(':'),sty=spec[0]==='u'?+q[0].slice(1)|0:0,base=spec[0]==='u'?+q[1]|0:baseFlag(L);
+  uniOf[m]=L;uniT[m]=now;uniLv[m]=++uniCnt[L];
+  const key=specOf(sty,base,orig[m].c.slice(1));NAME[m]=cleanRg(name);FL[m]=seatFlag(key);FLS[m]=key;recolor(m);
+  for(const k of hadM){uniOf[k]=L;uniLv[k]=++uniCnt[L];recolor(k)}
+  purgeAttacks()
+ }else{
+  let moved=0;for(let i=0;i<W*H;i++)if(own[i]===m){own[i]=L;ft[i]=now;moved++}
+  for(const k of hadM){uniOf[k]=L;uniLv[k]=++uniCnt[L];recolor(k)}
+  for(const A of attacks)if(A.p===m)A.p=L;
+  sol[L]+=sol[m];sol[m]=0;alive[m]=0;ctl[m]=L;
+  NAME[L]=cleanRg(name);FL[L]=seatFlag(spec);FLS[L]=spec;OC[L]=FLAGS[FL[L]].k;NAME[m]=NAME[L];FL[m]=FL[L];FLS[m]=spec;OC[m]=OC[L];
+  for(const k of memOf(L))recolor(k)
+ }
+ if(caps[m]){ring(caps[m].x+.5,caps[m].y+.5,OC[kind==='u'?m:L],kind==='u'?1:1.4);boom(caps[m].x+.5,caps[m].y+.5,.9);shk=now}
+ GS.pacts[L]++;GS.pacts[m]++;lbK='';
+ emit(kind==='u'?'uni':'mrg',L,m,NAME[kind==='u'?m:L]);
+ {const h=hp();if(h===L||h===m||ctl[h]===L)toast(kind==='u'?'\u{1F6A9} '+esc(orig[m].n)+' joined as '+esc(NAME[m]):'\u{1F91D} Merged into '+esc(NAME[L]),4200)}
+ checkWin()
 }
 function secede(m){
  const L=uniOf[m];if(!L||!orig[m])return false;
- const tiles=[];let lt=0;for(let i=0;i<W*H;i++){if(own[i]===L){lt++;if(sub[i]===m)tiles.push(i)}}
- uniOf[m]=0;ctl[m]=0;uniT[m]=0;
- if(!tiles.length){alive[m]=0;emit('sec',m,L,'');return true}
- const share=Math.floor(sol[L]*Math.min(.5,tiles.length/Math.max(1,lt)));sol[L]-=share;sol[m]=share;alive[m]=1;
- NAME[m]=orig[m].n;FL[m]=orig[m].f;OC[m]=orig[m].c;FLS[m]='f'+orig[m].f;
- for(const i of tiles){own[i]=m;sub[i]=0;ft[i]=now}
+ uniOf[m]=0;uniT[m]=0;NAME[m]=orig[m].n;FL[m]=orig[m].f;OC[m]=orig[m].c;FLS[m]='f'+orig[m].f;
  const c=caps[m];if(c){ring(c.x+.5,c.y+.5,OC[m],1.8);setTimeout(()=>ring(c.x+.5,c.y+.5,'#ffffff',1.3),180);setTimeout(()=>ring(c.x+.5,c.y+.5,OC[m],2.4),360);boom(c.x+.5,c.y+.5,1.5);shk=now;shkA=1}
- for(const o of memOf(L))ctl[o]=L;lbK='';
- emit('sec',m,L,'');
- const h=hp();if(h===m||h===L||ctl[h]===0&&h===m)toast('\u{1F4A5} '+esc(NAME[m])+' broke away from the union!',4200);
+ lbK='';emit('sec',m,L,'');
+ {const h=hp();if(h===m||h===L)toast('\u{1F4A5} '+esc(NAME[m])+' broke away from the union!',4200)}
  return true
 }
 function applyDeal(pr){
  if(pr.k===1||pr.k===2)return applyPact(pr.a,pr.b,pr.k);
- if(!alive[pr.a]||!alive[pr.b])return;
- absorb(pr.a,pr.b,pr.k===3?'u':'m',pr.nm||('Union of '+NAME[pr.a]),pr.fg||('f'+FL[pr.a]));
+ if(!alive[pr.a]||!alive[pr.b]||uniOf[pr.a]||uniOf[pr.b])return;
+ absorb(pr.a,pr.b,pr.k===3?'u':'m',pr.nm||NAME[pr.b],pr.fg||('f'+FL[pr.a]))
 }
 const kText=k=>k===1?'a ceasefire':k===2?'an alliance':k===3?'to join your union':'to merge with you';
 function drawRings(){
@@ -369,24 +412,25 @@ function drawRings(){
   const R=(.6+a*10*r.big)*T;cx.save();cx.globalAlpha=(1-a)*.85;cx.strokeStyle=r.col;cx.lineWidth=Math.max(2,T*.5*(1-a));cx.beginPath();cx.arc(r.x*T,r.y*T,R,0,7);cx.stroke();
   cx.globalAlpha=(1-a)*.25;cx.fillStyle=r.col;cx.fill();cx.restore()}
 }
+const gN=q=>(st.n[q]||0)+memOf(q).reduce((a,m)=>a+(st.n[m]||0),0);
 function lbTick(){
  const el=$('#lb'),on=S.lb&&mode==='play'&&!won;if(el.hidden===on)el.hidden=!on;$('#stage').classList.toggle('lbon',!!on);if(!on)return;
- const me=hp(),land=landTot(),L=PL().filter(q=>alive[q]).sort((a,b)=>(st.n[b]||0)-(st.n[a]||0)),lim=NP>8?9:L.length;
- let rows=L.slice(0,lim);if(!rows.includes(me)&&alive[me])rows.push(me);
- const pc=q=>{const v=(st.n[q]||0)/land*100;return v<10?v.toFixed(1):Math.round(v)},ps=q=>{const s_=pact(me,q);return s_===2?'<span class="t" title="allied">★</span>':s_===1?'<span class="t" title="ceasefire">⏸</span>':''};
- let h='';if(lbOpen){rows.forEach(q=>{const idx_=L.indexOf(q)+1;h+=`<div class="lbr${q===me?' me':''}" data-a="lbf" data-t="${q}"><span>${idx_}</span><img src="${flagUrl(FL[q])}"><b style="color:${q===me?'#fff':'#dfe6ec'}">${esc(NAME[q])}</b>${ps(q)}<span>${pc(q)}%</span></div>`;
-  for(const m of memOf(q)){let n=0;for(let i=0;i<W*H;i++)if(sub[i]===m&&own[i]===q)n++;h+=`<div class="lbr sub" data-a="lbf" data-t="${q}"><img src="${flagUrl(FL[m])}"><b>${esc(orig[m]?orig[m].n:NAME[m])}</b><span>${(n/land*100).toFixed(1)}%</span></div>`}})}
- h=`<div class="h" data-a="lbt"><span>Leaderboard</span><span>${lbOpen?'▾':'▸'}</span></div>`+h;
+ const me=hp(),mg=grp(me),land=landTot(),L=PL().filter(q=>alive[q]&&!uniOf[q]).sort((a,b)=>gN(b)-gN(a)),lim=NP>8?9:L.length;
+ let rows=L.slice(0,lim);if(!rows.includes(mg)&&alive[mg])rows.push(mg);
+ const pc=v=>{v=v/land*100;return v<10?v.toFixed(1):Math.round(v)},ps=q=>{const s_=pact(me,q);return s_===2&&grp(me)!==grp(q)?'<span class="t" title="allied">\u2605</span>':s_===1?'<span class="t" title="ceasefire">\u23F8</span>':''};
+ let h='';if(lbOpen){rows.forEach(q=>{const idx_=L.indexOf(q)+1;h+=`<div class="lbr${q===mg?' me':''}" data-a="lbf" data-t="${q}"><span>${idx_}</span><img src="${flagUrl(FL[q])}"><b>${esc(NAME[q])}</b>${ps(q)}<span>${pc(gN(q))}%</span></div>`;
+  for(const m of memOf(q))if(alive[m])h+=`<div class="lbr sub${m===me?' me':''}" data-a="lbf" data-t="${m}"><img src="${flagUrl(FL[m])}"><b>${esc(NAME[m])}</b><span>${pc(st.n[m]||0)}%</span></div>`})}
+ h=`<div class="h" data-a="lbt"><span>Leaderboard</span><span>${lbOpen?'\u25BE':'\u25B8'}</span></div>`+h;
  if(h!==lbK){lbK=h;el.innerHTML=h}
 }
 function focusOn(q){if(!alive[q])return;const c=pos[q];if(!c)return;focus(Math.round(c.x),Math.round(c.y),W*H>4000?70:W);showCard(q)}
-function memTiles(m,L){let n=0;for(let i=0;i<W*H;i++)if(sub[i]===m&&own[i]===L)n++;return n}
 function eventTick(){
  if(net&&net.role==='guest')return;if(mode!=='play'||won)return;
  const al=PL().filter(q=>alive[q]),land=landTot();
- if(NP>3&&al.length>2){const top=al.reduce((b,q)=>(st.n[q]||0)>(st.n[b]||0)?q:b,al[0]),sh=(st.n[top]||0)/land;
-  if(sh>=.45){if(domP!==top){domP=top;domT=now;emit('ev',0,0,NAME[top]+' controls 45% of the world! Stop them within 60 seconds!');if(hp()!==top)toast('\u26A0\uFE0F '+esc(NAME[top])+' is close to winning. Stop them!',5200)}else if(now-domT>60000){won=top;setTimeout(()=>{if(net&&net.role==='host')netSend('end',{gs:GS});showWin(top)},1500);return}}
-  else if(domP){if(domP===top||alive[domP])emit('ev',0,0,NAME[domP]+' lost their grip on the world.');domP=0}}
+ {const gl=al.filter(q=>!uniOf[q]),gs=Z();for(const q of al)gs[grp(q)]+=st.n[q]||0;
+  if(NP>3&&gl.length>2){const top=gl.reduce((b,q)=>gs[q]>gs[b]?q:b,gl[0]),sh=gs[top]/land;
+   if(sh>=.45){if(domP!==top){domP=top;domT=now;emit('ev',0,0,NAME[top]+' controls 45% of the world! Stop them within 60 seconds!');if(grp(hp())!==top)toast('\u26A0\uFE0F '+esc(NAME[top])+' is close to winning. Stop them!',5200)}else if(now-domT>60000){won=top;setTimeout(()=>{if(net&&net.role==='host')netSend('end',{gs:GS});showWin(top)},1500);return}}
+   else if(domP){emit('ev',0,0,NAME[domP]+' lost their grip on the world.');domP=0}}}
  if(!S.ev||!longG||now-gT0<90000)return;
  if(!evNext)evNext=now+60000+Math.random()*40000;if(now<evNext)return;evNext=now+85000+Math.random()*60000;
  if(al.length<2)return;
@@ -456,31 +500,95 @@ function drawTL(c,m){
 function tlHTML(){const land=landTot(),L=PL().map(q=>`<span class="chp"><i class="dot" style="background:${OC[q]}"></i> ${esc(NAME[q])}${alive[q]?'':' (out)'}: ${tlMode==='i'?(st.inc[q]||0).toFixed(1)+'/s':((st.n[q]||0)/land*100).toFixed(1)+'%'}</span>`).join('');
  return`<div class="box" style="width:min(480px,96vw)"><b>Timeline</b><canvas id="tlc" width="460" height="240" style="width:100%;border-radius:8px"></canvas><div class="seg"><button data-a="tlm" data-t="n" class="${tlMode==='n'?'on':''}">Territory</button><button data-a="tlm" data-t="i" class="${tlMode==='i'?'on':''}">Income</button></div><div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">${L}</div><button class="pri" data-a="tlx">Close</button></div>`}
 const tlDraw=()=>{const c=$('#tlc');if(c)drawTL(c,tlMode)};
-function dipRender(){const el=$('#dipo');el.innerHTML=dipForm?formHTML():dipHTML();el.querySelectorAll('canvas[data-us]').forEach(c=>previewSpec(c,c.dataset.us))}
-const propTxt=x=>x.k===1?'a ceasefire':x.k===2?'an alliance':x.k===3?'you to join the union \u201C'+x.nm+'\u201D':'to merge as \u201C'+x.nm+'\u201D';
-const baseFlag=q=>FL[q]<NF?FL[q]:(orig[q]?orig[q].f:0);
-function formHTML(){
- const f=dipForm,q=f.q,me=hp(),A=baseFlag(me),B=baseFlag(q),opts=f.k===3?[0,1,2,3,4].map(st_=>specOf(st_,A,0)):['f'+A,'f'+B,specOf(1,A,0),specOf(3,A,0),specOf(4,B,0)];
- if(!f.spec||!opts.includes(f.spec))f.spec=opts[0];
- return`<div class="box"><b>${f.k===3?'Form a union with ':'Merge with '}${esc(NAME[q])}</b><small>${f.k===3?'You become the leader. They join your country: their land, soldiers and income become yours. Their land is shown in a slightly lighter shade and they can break away later.':'Equal partners become ONE new country with a new name and flag. Land, soldiers and income are combined. This cannot be undone.'}</small><input id="dipnm" maxlength="18" value="${esc(f.nm)}" placeholder="New name"><small>Choose the flag</small><div class="us">${opts.map(o=>`<canvas data-us="${o}" width="78" height="52" class="${o===f.spec?'on':''}"></canvas>`).join('')}</div><button class="pri" data-a="dipsend">Send offer</button><button data-a="dipc">Back</button></div>`
+let dipOpen=0,dipK='',dipRT=0;
+
+/* ---- Messengers + reinforcements ---- */
+const MSGW=100;
+function cleanMsg(s){s=String(s==null?'':s).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'').replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();if(!s)return'';const w=s.split(/\s+/);if(w.length>MSGW)s=w.slice(0,MSGW).join(' ');return s.slice(0,800)}
+const wcount=s=>{s=String(s||'').trim();return s?s.split(/\s+/).length:0};
+function capSol(q){return Math.max(100,Math.floor((st.n[q]||0)*12))}
+function sendMsgr(f,t,tx,id,dur0,t00){const a=caps[f],b=caps[t];if(!a||!b)return;const d=Math.hypot(a.x-b.x,a.y-b.y),dur=dur0||Math.min(60000,Math.max(9000,d*(longG?420:620)));
+ const m={id:id||++mgid,f,t,x0:a.x+.5,y0:a.y+.5,x1:b.x+.5,y1:b.y+.5,t0:t00||performance.now(),dur,tx};if(m.id>mgid)mgid=m.id;msgrs.push(m);
+ if(net&&net.role==='host')netSend('msgr',{id:m.id,f,t,x0:m.x0,y0:m.y0,x1:m.x1,y1:m.y1,dur,tx});
+ if(!id)emit('msgs',f,t,'')}
+function msgrTick(){
+ for(let k=msgrs.length-1;k>=0;k--){const m=msgrs[k];if(now-m.t0<m.dur)continue;msgrs.splice(k,1);
+  if(!alive[m.t])continue;inbox.push({id:m.id,f:m.f,t:m.t,tx:m.tx,at:now,read:0});if(inbox.length>60)inbox.shift();
+  if(!(net&&net.role==='guest')&&botSeat[m.t]&&!botSeat[m.f]&&alive[m.f]&&!uniOf[m.t]){const to=m.t,fr=m.f;setTimeout(()=>{if(alive[to]&&alive[fr]&&!won&&caps[to]&&caps[fr])sendMsgr(to,fr,botReplyTxt(to,fr))},2500+Math.random()*3500)}}
 }
+function botReplyTxt(b,h){const s=pact(b,h),pick=a=>a[Math.floor(Math.random()*a.length)],big=(st.n[b]||0)>(st.n[h]||0)*1.2;
+ if(s===2)return pick(['Our armies stand beside yours, friend.','Alliance holds. Name the enemy and we march.','Well met, ally. The crown is safer with two swords.']);
+ if(s===1)return pick(['We honor the ceasefire, for now.','Peace is profitable. Do not test us.','The truce stands, but our scouts are watching your borders.']);
+ return big?pick(['Your words are noted. Your borders will be, too.','We fear no one. Send arrows, not letters.','Surrender your land and we may spare your capital.']):pick(['We are listening. Perhaps there is a deal to be made.','Peace could serve us both. Consider a ceasefire.','Your messenger is welcome, your army is not.'])}
+function drawMsgr(m){
+ const u=Math.min(1,(now-m.t0)/m.dur),x=(m.x0+(m.x1-m.x0)*u)*T,y=(m.y0+(m.y1-m.y0)*u)*T,s=Math.max(T*1.9,19),ph=now/85+m.id,bob=Math.sin(ph*2)*s*.035,dir=m.x1>=m.x0?1:-1,me=net?net.seat:hp(),mine=m.f===me||m.t===me;
+ if(mine){cx.save();cx.strokeStyle='rgba(255,236,170,.5)';cx.lineWidth=1.5;cx.setLineDash([3,6]);cx.beginPath();cx.moveTo(x,y);cx.lineTo(m.x1*T,m.y1*T);cx.stroke();cx.restore()}
+ cx.save();cx.translate(x,y+bob);cx.scale(dir,1);
+ cx.fillStyle='rgba(0,0,0,.28)';cx.beginPath();cx.ellipse(0,s*.34,s*.4,s*.08,0,0,7);cx.fill();
+ cx.lineCap='round';cx.strokeStyle='#4a2a12';cx.lineWidth=Math.max(1.5,s*.07);
+ for(let k=0;k<4;k++){const bx=(k<2?-.24:.22)+(k%2?.07:0),sw=Math.sin(ph*2+k*1.7)*s*.13;cx.beginPath();cx.moveTo(bx*s,s*.1);cx.lineTo(bx*s+sw,s*.34);cx.stroke()}
+ cx.fillStyle='#7a4a24';cx.beginPath();cx.ellipse(0,s*.02,s*.36,s*.15,0,0,7);cx.fill();
+ cx.strokeStyle='#2a1608';cx.lineWidth=Math.max(1.5,s*.06);cx.beginPath();cx.moveTo(-s*.34,0);cx.quadraticCurveTo(-s*.5,s*.05+Math.sin(ph*2)*s*.04,-s*.46,s*.2);cx.stroke();
+ cx.fillStyle='#7a4a24';cx.beginPath();cx.moveTo(s*.26,-s*.06);cx.lineTo(s*.42,-s*.3);cx.lineTo(s*.52,-s*.26);cx.lineTo(s*.5,-s*.12);cx.lineTo(s*.34,s*.06);cx.closePath();cx.fill();
+ cx.fillStyle='#1d1008';cx.beginPath();cx.arc(s*.47,-s*.22,Math.max(.8,s*.016),0,7);cx.fill();
+ cx.fillStyle='#8a5a2c';cx.fillRect(-s*.1,-s*.15,s*.3,s*.06);
+ const rc=OC[m.f]||'#c33';cx.fillStyle=rc;cx.beginPath();cx.roundRect(-s*.09,-s*.4,s*.17,s*.27,s*.04);cx.fill();
+ cx.fillStyle='#f1c9a0';cx.beginPath();cx.arc(-s*.005,-s*.47,s*.075,0,7);cx.fill();
+ cx.fillStyle='#2a1c10';cx.beginPath();cx.ellipse(-s*.005,-s*.53,s*.13,s*.03,0,0,7);cx.fill();
+ cx.beginPath();cx.moveTo(-s*.09,-s*.53);cx.quadraticCurveTo(-s*.005,-s*.74,s*.08,-s*.53);cx.closePath();cx.fill();
+ cx.strokeStyle=rc;cx.lineWidth=Math.max(1,s*.04);cx.beginPath();cx.moveTo(s*.06,-s*.6);cx.quadraticCurveTo(s*.17,-s*.78,s*.12,-s*.88);cx.stroke();
+ cx.strokeStyle=rc;cx.lineWidth=Math.max(1.5,s*.06);cx.beginPath();cx.moveTo(s*.05,-s*.3);cx.lineTo(s*.2,-s*.22);cx.stroke();
+ cx.fillStyle='#f6e7c0';cx.fillRect(s*.17,-s*.3,s*.1,s*.07);cx.fillStyle='#b3261e';cx.beginPath();cx.arc(s*.22,-s*.265,Math.max(.8,s*.018),0,7);cx.fill();
+ cx.restore();
+ const fw=s*.46,fh=s*.31,px=x-dir*s*.13,pt=y+bob-s*.95;
+ cx.strokeStyle='#3a2410';cx.lineWidth=Math.max(1,s*.04);cx.beginPath();cx.moveTo(px,y+bob-s*.3);cx.lineTo(px,pt);cx.stroke();
+ const fx0=dir>0?px-fw:px,wv=Math.sin(now/110+m.id)*fh*.06;cx.save();cx.translate(fx0,pt+wv);flag(cx,FL[m.f],0,0,fw,fh);cx.restore()
+}
+function dipRender(force){
+ const el=$('#dipo');if(el.hidden)return;
+ if(!force&&document.activeElement&&/^dip(nm|msg|sol)$/.test(document.activeElement.id))return;
+ let h=dipHTML();const sig=h.replace(/<span class="cd"[^>]*><\/span>/g,'');
+ if(force||sig!==dipK){dipK=sig;const sc=el.scrollTop;el.innerHTML=h;el.scrollTop=sc;el.querySelectorAll('canvas[data-us]').forEach(c=>previewSpec(c,c.dataset.pv||c.dataset.us))}
+ el.querySelectorAll('.cd').forEach(c=>{c.textContent=Math.max(0,Math.ceil((+c.dataset.e-now)/1000))+'s'})
+}
+const propTxt=x=>x.k===1?'a ceasefire':x.k===2?'an alliance':x.k===3?'you to join their union as \u201C'+x.nm+'\u201D':'to merge into \u201C'+x.nm+'\u201D';
+const baseFlag=q=>FL[q]<NF?FL[q]:(orig[q]?orig[q].f:0);
 function dipHTML(){
- const me=hp(),raw=net?net.seat:1;let h='<b>Diplomacy</b>';
+ const me=hp(),raw=net?net.seat:1,mine=grp(raw),pend=props.filter(x=>x.b===me&&alive[x.a]);
+ let h='<div class="dh"><b>Diplomacy</b><button data-a="dipx">\u2715</button></div>';
+ if(uniOf[raw])return h+`<div class="uc"><span>You are a member of <b>${esc(NAME[uniOf[raw]])}</b>'s union.</span><small>Members cannot do diplomacy and cannot attack the leader, the other members or the leader's allies. You make your own soldiers, and key points you hold boost the whole union.</small><button class="pri" data-a="dips" data-t="${raw}">Break away \u{1F4A5}</button></div>`;
+ for(const x of pend)h+=`<div class="of"><span><img src="${flagUrl(FL[x.a])}" width="26" height="17" style="vertical-align:middle;border-radius:3px"> <b>${esc(NAME[x.a])}</b> offers ${esc(propTxt(x))}</span><div class="r"><button class="pri" data-a="dip" data-t="yes:${x.a}">Accept</button><button data-a="dip" data-t="no:${x.a}">Decline</button></div></div>`;
+ const mine_in=inbox.filter(x=>x.t===me).slice(-6).reverse(),unr=inbox.filter(x=>x.t===me&&!x.read).length;
+ if(mine_in.length)h+=`<div class="uc mlist"><b>\u{1F4DC} Messages${unr?` <b class="n">${unr} new</b>`:''}</b>${mine_in.map(x=>`<div class="m" data-a="mopen" data-t="${x.id}"><img src="${flagUrl(FL[x.f])}"><span>${esc(NAME[x.f])}${x.read?'':' <small>unread</small>'}</span><button data-a="mopen" data-t="${x.id}">Open</button></div>`).join('')}</div>`;
  const ms=memOf(me);
- if(ms.length)h+=`<div class="dr"><b style="font-size:16px">Your union</b>${ms.map(m=>`<div class="row" style="align-items:center"><img src="${flagUrl(FL[m])}" width="30" height="20"><span style="flex:1;text-align:left">${esc(orig[m]?orig[m].n:NAME[m])}</span><button data-a="dips" data-t="${m}">Release</button></div>`).join('')}</div>`;
- if(uniOf[raw]&&raw!==me)h+=`<div class="dr"><span>You are a member of <b>${esc(NAME[uniOf[raw]])}</b>.</span><button class="pri" data-a="dips" data-t="${raw}">Break away \u{1F4A5}</button></div>`;
- const L=PL().filter(q=>q!==me&&alive[q]&&!ctl[q]).sort((a,b)=>(st.n[b]||0)-(st.n[a]||0));
- for(const q of L){const s_=pact(me,q),out=props.find(x=>x.a===me&&x.b===q),inn=props.find(x=>x.a===q&&x.b===me);let tx='At war',bt='';
-  if(inn){tx=NAME[q]+' offers '+propTxt(inn);bt=`<div class="row"><button class="pri" data-a="dip" data-t="yes:${q}">Accept</button><button data-a="dip" data-t="no:${q}">Decline</button></div>`}
-  else if(out)tx='Offer sent, waiting for an answer...';
-  else{
-   if(s_===1){tx='Ceasefire, '+Math.max(0,Math.ceil((dipE[me][q]-now)/1000))+'s left'}else if(s_===2)tx='Allied';else if(s_===3)tx='Treaty ending, '+Math.max(0,Math.ceil((dipE[me][q]-now)/1000))+'s until war';
-   if(s_===0)bt+=`<div class="row"><button data-a="dip" data-t="cf:${q}">Ceasefire</button><button data-a="dip" data-t="al:${q}">Alliance</button></div>`;
-   if(s_===1)bt+=`<div class="row"><button data-a="dip" data-t="al:${q}">Alliance</button><button data-a="dip" data-t="brk:${q}">End ceasefire</button></div>`;
-   if(s_===2)bt+=`<div class="row"><button data-a="dip" data-t="brk:${q}">Break alliance</button></div>`;
-   if(s_!==3)bt+=`<div class="row"><button data-a="dipf" data-t="3:${q}">Union</button><button data-a="dipf" data-t="4:${q}">Merge</button></div>`}
-  h+=`<div class="dr"><span style="display:flex;gap:8px;align-items:center"><img src="${flagUrl(FL[q])}" width="30" height="20"><b>${esc(NAME[q])}</b></span><small>${tx}</small>${bt}</div>`}
- return`<div class="box">${h}<small>Ceasefire and alliance stop attacks. Union: they join you and you lead; they can break away later. Merge: two countries become one new country.</small><button class="pri" data-a="dipx">Close</button></div>`
+ if(ms.length)h+=`<div class="uc"><b>Your union</b>${ms.map(m=>`<div class="m"><img src="${flagUrl(FL[m])}"><span>${esc(NAME[m])} <small>(${esc(orig[m]?orig[m].n:'')})</small></span><button data-a="dips" data-t="${m}">Release</button></div>`).join('')}<small>Members play on their own with their own soldiers. Key points held by anyone in the union boost everyone.</small></div>`;
+ const land=landTot(),L=PL().filter(q=>q!==me&&alive[q]&&!ctl[q]).sort((a,b)=>{const pa=props.some(x=>x.b===me&&x.a===a)?2:0,pb=props.some(x=>x.b===me&&x.a===b)?2:0,sa=pact(me,a),sb=pact(me,b);return (pb+(sb?1:0))-(pa+(sa?1:0))||gN(b)-gN(a)});
+ for(const q of L){
+  const mem=uniOf[q],lead=mem?mem:q,s_=mem?(grp(me)===lead?2:dipS[grp(me)][lead]):pact(me,q),out=props.find(x=>x.a===me&&x.b===q);
+  const mine_=grp(me)===grp(q);
+  let chip=mine_?'<span class="st un">Your union</span>':mem?`<span class="st un">Union of ${esc(NAME[lead])}</span>`:s_===1?`<span class="st cf">Ceasefire <span class="cd" data-e="${dipE[me][q]}"></span></span>`:s_===2?'<span class="st al">Allied</span>':s_===3?`<span class="st lv">Ending <span class="cd" data-e="${dipE[me][q]}"></span></span>`:out?'<span class="st">Offer sent</span>':'<span class="st war">War</span>';
+  h+=`<div class="dpr" data-a="dipt" data-t="${q}"><img src="${flagUrl(FL[q])}"><b>${esc(NAME[q])}</b>${chip}<span class="pc">${(gN(q)/land*100).toFixed(1)}%</span></div>`;
+  if(dipOpen===q){
+   let x='';
+   if(mem){x=`<small>${esc(NAME[q])} belongs to ${esc(NAME[lead])}'s union${mine_?'':'. Only the union leader can deal with them'}.</small>${mine_?'':`<div class="acts"><button data-a="dipt" data-t="${lead}">Open ${esc(NAME[lead])}</button></div>`}`}
+   else if(dipForm&&dipForm.q===q&&dipForm.k===5){const f=dipForm,w=wcount(f.tx),dist=caps[me]&&caps[q]?Math.hypot(caps[me].x-caps[q].x,caps[me].y-caps[q].y):0,eta=Math.round(Math.min(60000,Math.max(9000,dist*(longG?420:620)))/1000);
+    x=`<b>\u2709\uFE0F Message to ${esc(NAME[q])}</b><small>A horse messenger rides from your capital to theirs (about ${eta}s). Up to ${MSGW} words.</small><textarea id="dipmsg" placeholder="Write your message...">${esc(f.tx)}</textarea><div class="wc${w>MSGW?' bad':''}" id="dipwc">${w}/${MSGW} words</div><div class="acts"><button class="pri" data-a="msgsend">\u{1F40E} Send messenger</button><button data-a="dipc">Back</button></div>`}
+   else if(dipForm&&dipForm.q===q&&dipForm.k===6){const f=dipForm,room=Math.max(0,capSol(q)-Math.floor(sol[q])),mx=Math.max(0,Math.min(Math.floor(sol[me])-1,room));
+    x=`<b>\u{1F6E1}\uFE0F Send soldiers to ${esc(NAME[q])}</b><small>Their land can hold ${nf(capSol(q))} soldiers and they have ${nf(sol[q])}, so there is room for <b>${nf(room)}</b> more. You can send up to <b>${nf(mx)}</b>.</small><input id="dipsol" type="number" inputmode="numeric" min="1" max="${mx}" value="${f.n||''}" placeholder="How many soldiers"><div class="qk"><button data-a="sodq" data-t="25">25%</button><button data-a="sodq" data-t="50">50%</button><button data-a="sodq" data-t="100">Max</button></div><div class="acts"><button class="pri" data-a="sodsend">Send soldiers</button><button data-a="dipc">Back</button></div>`}
+   else if(dipForm&&dipForm.q===q&&dipForm.k>=3&&dipForm.k<=4){const f=dipForm,A=baseFlag(me),B=baseFlag(q),mc=OC[q].slice(1),opts=f.k===3?[0,1,2,3,4].map(t=>[specOf(t,A,0),specOf(t,A,mc)]):['f'+A,'f'+B,specOf(1,A,0),specOf(3,A,0),specOf(4,B,0)].map(k=>[k,k]);
+    if(!f.spec||!opts.some(o=>o[0]===f.spec))f.spec=opts[0][0];
+    x=`<b>${f.k===3?'Form a union with '+esc(NAME[q]):'Merge with '+esc(NAME[q])}</b><small>${f.k===3?'You lead. They keep their own land and soldiers and play on their own, but cannot attack you, your union or your allies. Their land turns a lighter shade of yours, and key points they hold boost everyone. They can break away later. Name them and pick their flag:':'Two equal countries become ONE new country with a new name and flag. Land, soldiers and income combine. This cannot be undone.'}</small><input id="dipnm" maxlength="18" value="${esc(f.nm)}" placeholder="${f.k===3?'Their new name':'New country name'}"><div class="us">${opts.map(o=>`<canvas data-us="${o[0]}" data-pv="${o[1]}" width="78" height="52" class="${o[0]===f.spec?'on':''}"></canvas>`).join('')}</div><div class="acts"><button class="pri" data-a="dipsend">Send offer</button><button data-a="dipc">Back</button></div>`}
+   else if(out)x=`<small>Waiting for ${esc(NAME[q])} to answer (30s)...</small><div class="acts"><button data-a="dip" data-t="cx:${q}">Cancel offer</button></div>`;
+   else{let b='';
+    if(s_===0)b+=`<button data-a="dip" data-t="cf:${q}">\u{1F54A}\uFE0F Ceasefire</button><button data-a="dip" data-t="al:${q}">\u{1F91D} Alliance</button>`;
+    if(s_===1)b+=`<button data-a="dip" data-t="al:${q}">\u{1F91D} Alliance</button><button data-a="dip" data-t="brk:${q}">End ceasefire</button>`;
+    if(s_===2)b+=`<button class="full" data-a="dip" data-t="brk:${q}">Break alliance</button>`;
+    b+=`<button data-a="dipf" data-t="5:${q}">\u2709\uFE0F Message</button>`;if(s_===2)b+=`<button data-a="dipf" data-t="6:${q}">\u{1F6E1}\uFE0F Send soldiers</button>`;
+    if(s_!==3)b+=`<button data-a="dipf" data-t="3:${q}">\u{1F6A9} Union</button><button data-a="dipf" data-t="4:${q}">\u{1F517} Merge</button>`;
+    x=s_===3?'<small>The treaty is ending. War resumes soon.</small>':`<div class="acts">${b}</div>`}
+   h+=`<div class="dpx">${x}</div>`}
+ }
+ return h+(L.length?'':'<small>Nobody else is left.</small>')
 }
 function trackTick(){
  const me=hp();
@@ -488,9 +596,11 @@ function trackTick(){
  for(let p=1;p<=NP;p++){if(st.n[p]>GS.peakN[p])GS.peakN[p]=st.n[p];if(st.inc[p]>GS.peakInc[p])GS.peakInc[p]=st.inc[p];if(st.pc&&st.pc[p]>GS.peakPort[p])GS.peakPort[p]=st.pc[p];if(st.rc&&st.rc[p]>GS.peakRig[p])GS.peakRig[p]=st.rc[p];
   if(alive[p]&&now-gT0>180000){const o=PL().filter(q=>q!==p&&alive[q]).map(q=>st.n[q]);if(o.length&&st.n[p]<Math.min(...o)*.5)GS.behind[p]=1}}
  if(tlOpen&&!$('#tl').hidden)tlDraw();
+ if(!$('#dipo').hidden&&now-dipRT>350){dipRT=now;dipRender()}
  {const b=$('#bMis');if(b){const w=mWait(me),t='Missile '+nf(mCost(me,mk))+(w>0?' · '+Math.ceil(w/1000)+'s':'');if(b.textContent!==t)b.textContent=t}}
  {const inc=props.filter(x=>x.b===me&&alive[x.a]),k=inc.map(x=>x.a+'.'+x.k).join();
   if(k!==lastPk){lastPk=k;$('#prop').innerHTML=inc.map(x=>`<div><span><b>${esc(NAME[x.a])}</b> offers ${esc(propTxt(x))}</span><button class="pri" data-a="dip" data-t="yes:${x.a}">Accept</button><button data-a="dip" data-t="no:${x.a}">Decline</button></div>`).join('');ui()}}
+ mbxRender();
  if(now-badgeT>2000){badgeT=now;const got=checkBadges(false,0);if(got.length)toastBadges(got)}
 }
 function bigTable(p,pct){
@@ -512,7 +622,7 @@ function showWin(p){
  const aw=cats.map(c=>{let b=0;for(let q=1;q<=NP;q++)if(GS[c[1]][q]>GS[c[1]][b||1]||!b)b=b&&GS[c[1]][q]<=GS[c[1]][b]?b:q;return GS[c[1]][b]>0?`<span class="chp">${c[0]}: <b style="color:${OC[b]}">${esc(NAME[b])}</b> (${c[2](GS[c[1]][b])})</span>`:''}).join('');
  const bd=earnedNow.map(id=>BADGES.find(b=>b.id===id)).filter(Boolean).map(b=>`<span class="chp g">${b.e} ${esc(b.n)}</span>`).join('');
  win.className='res';
- win.innerHTML=`<div class="rs"><h2><i class="dot" style="background:${OC[p]}"></i> ${esc(NAME[p])} wins</h2><div class="sub">${fmtT(dur)} · ${longG?'Long Game':'Classic'}</div>
+ win.innerHTML=`<div class="rs"><h2><i class="dot" style="background:${OC[p]}"></i> ${esc(NAME[p])}${memOf(p).length?' and their union':''} wins</h2><div class="sub">${fmtT(dur)} · ${longG?'Long Game':'Classic'}</div>
  ${NP>3?bigTable(p,pct):`<table><tr><th></th>${th}</tr>${rows}</table>`}<div class="chips">${aw}</div>
  <canvas id="rsc" width="520" height="230"></canvas>
  ${bd?`<div class="sub">Badges unlocked this game</div><div class="chips">${bd}</div>`:''}
@@ -573,14 +683,16 @@ function spawn(A,bl){
   sprites.push({p:q,x0:sx,y0:sy,x1:bx,y1:by,t0:now,dur:900+Math.random()*400,rest:900})}
 }
 function stats(){
- const n=Z(),inc=Z(),sx=Z(),sy=Z(),l2=Z(),wl=[],fc=Z();
- for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=idx(x,y),o=own[i];if(lm[i]===3)wl.push(i);if(!o)continue;if(terr[i]===1){n[o]++;inc[o]+=INCT();sx[o]+=x;sy[o]+=y}if(lm[i]===1)inc[o]+=longG?3:8;else if(lm[i]===2)l2[o]++}
+ const n=Z(),inc=Z(),sx=Z(),sy=Z(),l2=Z(),wl=[],fc=Z(),mec=Z();
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=idx(x,y),o=own[i];if(lm[i]===3)wl.push(i);if(!o)continue;if(terr[i]===1){n[o]++;inc[o]+=INCT();sx[o]+=x;sy[o]+=y}if(lm[i]===1)mec[o]+=longG?3:8;else if(lm[i]===2)l2[o]++}
  const wsh=Z(),mul=Z().map(()=>1);for(const w of wl)for(let p=1;p<=NP;p++)if(shattOK(w,p))wsh[p]++;
  for(const f of farms)fc[f.p]++;
  const pm=Z(),flat=Z(),rc=Z(),pc=Z(),kc=Z();
  const az=Z();if(pois.length){if(azS.length!==W*H)azS=new Int32Array(W*H);azG++;for(const q of pois){const o=own[q.i];if(!o)continue;const R=POIR(q),X=q.i%W,Y=(q.i/W)|0;for(let dy=-R;dy<=R;dy++)for(let dx=-R;dx<=R;dx++){if(dx*dx+dy*dy>R*R+.5)continue;const a=X+dx,b=Y+dy;if(!inb(a,b))continue;const j=idx(a,b);if(own[j]===o&&terr[j]===1&&azS[j]!==azG){azS[j]=azG;inc[o]+=AZ();az[o]++}}}}
  for(const q of pois){const o=own[q.i];if(!o)continue;if(q.t==='rig'){flat[o]+=RIGV[q.s]*(now<evBoom?2:1);rc[o]++}else if(q.t==='port'){pm[o]+=PORTM[q.s];pc[o]++}else{flat[o]+=CHOKEV;kc[o]++}}
- for(let p=1;p<=NP;p++){mul[p]=1+(longG?.5:.75)*(l2[p]+wsh[p])+.5*fc[p];inc[p]=(inc[p]+flat[p])*mul[p]*(1+Math.min(1.2,pm[p]))}
+ for(let p=1;p<=NP;p++)flat[p]+=mec[p];
+ {const gf=Z(),gp=Z();for(let p=1;p<=NP;p++){gf[grp(p)]+=flat[p];gp[grp(p)]+=pm[p]}
+  for(let p=1;p<=NP;p++){mul[p]=1+(longG?.5:.75)*(l2[p]+wsh[p])+.5*fc[p];inc[p]=(inc[p]+gf[grp(p)])*mul[p]*(1+Math.min(1.2,gp[grp(p)]))}}
  st.az=az;st.mul=mul;st.wsh=wsh;st.pm=pm;st.rc=rc;st.pc=pc;st.kc=kc;
  const tx=[],ty=[],best=[1e9,1e9,1e9,1e9];
  for(let p=1;p<=NP;p++){tx[p]=sx[p]/(n[p]||1);ty[p]=sy[p]/(n[p]||1)}
@@ -617,6 +729,7 @@ function step(dt){
  for(let k=ints.length-1;k>=0;k--){const it=ints[k];if(now-it.t0>=it.dur){const mi=missiles.findIndex(m=>m.id===it.mid);if(mi>=0)missiles.splice(mi,1);ifx.push({x:it.x,y:it.y,t0:now,k:1});ints.splice(k,1)}}
  ifx=ifx.filter(e=>now-e.t0<800);
  for(let k=missiles.length-1;k>=0;k--)if(now-missiles[k].t0>=missiles[k].dur){(net&&net.role==='guest'?impactFx:impact)(missiles[k]);missiles.splice(k,1)}
+ msgrTick();
  for(let k=fx.length-1;k>=0;k--)if(now-fx[k].t0>1200)fx.splice(k,1);sprites=sprites.filter(s=>now-s.t0<s.dur+s.rest);pops=pops.filter(o=>now-o.t0<450);
  for(let p=1;p<=NP;p++)if(alive[p]){const f=Math.min(1,dt*6);pos[p].x+=(st.tx[p]-pos[p].x)*f;pos[p].y+=(st.ty[p]-pos[p].y)*f}
  if(!net&&!alive[cur]&&!won)nextTurn();if(net&&!alive[cur]&&!won&&!net.elim){net.elim=1;msg.textContent='You were eliminated. Spectating...'}
@@ -660,7 +773,7 @@ function rgPath(r){const P=new Path2D,set=new Set(r.t);for(const i of r.t){const
  if(!set.has(i-1)||x===0){P.moveTo(x,y);P.lineTo(x,y+1)}if(!set.has(i+1)||x===W-1){P.moveTo(x+1,y);P.lineTo(x+1,y+1)}}return P}
 function encRg(r){const run=[];let a=-1,l=0;for(const i of r.t){if(a>=0&&i===a+l)l++;else{if(a>=0)run.push(a,l);a=i;l=1}}if(a>=0)run.push(a,l);return[r.id,r.p,r.n,r.k,run]}
 function setRegions(L,v){regions=[];for(const e of L||[]){const t=[],R=e[4]||[];for(let k=0;k+1<R.length;k+=2)for(let j=0;j<R[k+1];j++){const i=R[k]+j;if(i>=0&&i<W*H)t.push(i)}if(t.length)regions.push(mkRegion(e[0]|0,e[1]|0,cleanRg(e[2]),e[3]==='state'?'state':'city',t))}rgv=v;rgRebuild()}
-function resetWorld(){regions=[];rgid=0;rgv=0;rgMap=new Int16Array(W*H);newsL=[];warSet=new Set();lastAtk={};defAuto=Z();defSeen=Z();dp=null;fresh=[];fz=null;fullSync=true;bpath=null;atkSnap=[];lay=null;GS=newGS();hist=[];histT=0;gT0=performance.now();sub=new Uint8Array(W*H);uniOf=Z();uniT=Z();uniLv=Z();orig=[];rings=[];dipForm=null;lbK='';evNext=0;evBoom=0;domP=0;domT=0;landN=0;earnedNow=[];dipS=Z().map(()=>Z());dipE=Z().map(()=>Z());dipCD=Z();props=[];collT=0;lastPk='';mlog=Z().map(()=>[]);mcdU=Z();mrcS=Z();try{hudClear()}catch(e){}}
+function resetWorld(){regions=[];rgid=0;rgv=0;rgMap=new Int16Array(W*H);newsL=[];warSet=new Set();lastAtk={};defAuto=Z();defSeen=Z();dp=null;fresh=[];fz=null;fullSync=true;bpath=null;atkSnap=[];lay=null;GS=newGS();hist=[];histT=0;gT0=performance.now();sub=null;uniOf=Z();uniT=Z();uniLv=Z();uniCnt=Z();uniChk=Z();FLS.fill('');orig=[];rings=[];dipForm=null;dipOpen=0;msgrs=[];inbox=[];mgid=0;msgCd=Z();supCd=Z();lbK='';evNext=0;evBoom=0;domP=0;domT=0;landN=0;earnedNow=[];dipS=Z().map(()=>Z());dipE=Z().map(()=>Z());dipCD=Z();props=[];collT=0;lastPk='';mlog=Z().map(()=>[]);mcdU=Z();mrcS=Z();try{hudClear()}catch(e){}}
 function regionCheck(){
  if(!regions.length||(net&&net.role==='guest')||mode!=='play'||now-lastRgChk<1000)return;lastRgChk=now;let ch=false;
  regions=regions.filter(r=>{let n=0;for(const i of r.t)if(own[i]===r.p)n++;if(n>=r.t.length*.4&&alive[r.p])return true;ch=true;emit('rgl',r.p,0,(r.k==='state'?'the state of ':'the city of ')+r.n);return false});
@@ -682,6 +795,8 @@ function newsText(k,a,b,x){
  else if(k==='mrg')t=nm_(a)+' and '+nm_(b)+' merged to form '+x;
  else if(k==='sec'){t=nm_(a)+' broke away from '+(b===me?'your union':'the union of '+NAME[b])+'!';if(b===me)bad=1}
  else if(k==='ev')t=x;
+ else if(k==='msgs'){if(b===me)t='A messenger from '+NAME[a]+' is riding to you...';else if(a!==me)t=nm_(a)+' sent a messenger to '+NAME[b]}
+ else if(k==='sup'){if(b===me)t=NAME[a]+' sent you '+x+' soldiers!';else t=nm_(a)+' sent '+x+' soldiers to '+NAME[b]}
  else if(k==='dno')t=nm_(a)+' declined '+(b===me?'your':NAME[b]+"'s")+' offer';
  else if(k==='mis'){if(b===me){t=NAME[a]+' launched a '+x+' at you!';bad=1}else t=nm_(a)+' launched a '+x+' at '+NAME[b]}
  return[t,bad]
@@ -702,7 +817,7 @@ function autoDef(){
   else if(now-defSeen[p]>6000){defAuto[p]=0;if(p===hp()){flash('Attack over, auto-defend off',2000);ui()}}}
 }
 function underAtk(){if(mode!=='play')return false;const m=hp();return curAt().some(e=>e.q===m)}
-function hudClear(){try{$('#prop').innerHTML='';$('#toast').hidden=true;$('#tl').hidden=true;$('#dipo').hidden=true;tlOpen=false}catch(e){}const h=$('#hud');if(h){h.hidden=true;h.innerHTML=''}lastHk='';newsL=[];lastNk='x';newsRender()}
+function hudClear(){try{$('#mbx').hidden=true;$('#scr').hidden=true;$('#prop').innerHTML='';$('#toast').hidden=true;$('#tl').hidden=true;$('#dipo').hidden=true;tlOpen=false}catch(e){}const h=$('#hud');if(h){h.hidden=true;h.innerHTML=''}lastHk='';newsL=[];lastNk='x';newsRender()}
 function hudTick(){
  if(mode!=='play'){return}
  trackTick();if(now-lbT>450){lbT=now;lbTick()}
@@ -782,7 +897,7 @@ function syncLayer(){
  const key=OC.join();if(key!==ocs){ocs=key;shO.fill(65535);OCR=OC.map(h=>h?[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]:[0,0,0])}
  if(!fz||fz.length!==n)fz=new Uint8Array(n);
  let ch=false;const d=limg.data;
- for(let i=0;i<n;i++){const o=own[i],t=terr[i],su=(sub&&sub[i]&&uniOf[sub[i]]===o)?sub[i]:0,eo=o|(su<<5);if(eo===shO[i]&&t===shT[i])continue;
+ for(let i=0;i<n;i++){const o=own[i],t=terr[i],su=0,eo=o;if(eo===shO[i]&&t===shT[i])continue;
   if(o&&o!==(shO[i]&31)&&!fullSync){ft[i]=now;if(!fz[i]){fz[i]=1;fresh.push(i)}}
   shO[i]=eo;shT[i]=t;ch=true;const q=i*4;
   if(!t){d[q+3]=0;continue}
@@ -853,6 +968,7 @@ function draw(){
    cx.fillStyle='rgba(0,0,0,.25)';cx.beginPath();cx.ellipse(gx*T,gy*T,2.5,1.4,0,0,7);cx.fill();
    for(let q=7;q>=1;q--){const v=Math.max(0,u-q*.022);cx.fillStyle='rgba(255,190,110,'+(.6-q*.07)+')';cx.beginPath();cx.arc((m.s.x+(m.x-m.s.x)*v)*T,(m.s.y+(m.y-m.s.y)*v-Math.sin(Math.PI*v)*m.ah)*T,Math.max(.6,2.6-q*.3),0,7);cx.fill()}
    cx.fillStyle='#fff';cx.beginPath();cx.arc(gx*T,(gy-Math.sin(Math.PI*u)*m.ah)*T,2.6,0,7);cx.fill()}
+  for(const m of msgrs)drawMsgr(m);
   for(const it of ints){const u=Math.min(1,(now-it.t0)/it.dur),hx=it.ax+(it.x-it.ax)*u,hy=it.ay+(it.y-it.ay)*u,tx0=it.ax+(it.x-it.ax)*Math.max(0,u-.25),ty0=it.ay+(it.y-it.ay)*Math.max(0,u-.25);
    cx.strokeStyle='rgba(160,230,255,.85)';cx.lineWidth=2.5;cx.lineCap='round';cx.beginPath();cx.moveTo(tx0*T,ty0*T);cx.lineTo(hx*T,hy*T);cx.stroke();
    cx.fillStyle='#fff';cx.beginPath();cx.arc(hx*T,hy*T,3,0,7);cx.fill()}
@@ -880,7 +996,6 @@ function draw(){
    if(q===cur&&!won){cx.shadowColor='#fff';cx.shadowBlur=12}flag(cx,FL[q],X,Y,fw,fh);cx.shadowBlur=0;
    let yy=Y+fh+T*.55;if(S.pn){const fs2=Math.max(11,Math.min(T*.52,15));cx.font='700 '+fs2+'px "Barlow Condensed",system-ui,sans-serif';cx.lineWidth=3;cx.strokeStyle='rgba(10,16,22,.9)';cx.strokeText(NAME[q],X+fw/2,Y+fh+fs2*.75);cx.fillStyle=OC[q];cx.fillStyle='#fff';cx.fillText(NAME[q],X+fw/2,Y+fh+fs2*.75);yy=Y+fh+fs2*.75+Math.max(13,T*.62);cx.font='700 '+Math.max(14,T*.72)+'px "Barlow Condensed",system-ui,sans-serif'}
    const t=nf(sol[q]);cx.lineWidth=3.5;cx.strokeStyle='rgba(10,16,22,.9)';cx.strokeText(t,X+fw/2,yy);cx.fillStyle='#fff';cx.fillText(t,X+fw/2,yy)}
-  for(let m=1;m<=NP;m++){const L=uniOf[m];if(!L||!alive[L]||!caps[m]||own[idx(caps[m].x,caps[m].y)]!==L)continue;const w2=fw*.62,h2=fh*.62,X=(caps[m].x+.5)*T-w2/2,Y=(caps[m].y+.5)*T-h2/2;flag(cx,FL[m],X,Y,w2,h2);if(S.pn&&T>=8){const fs2=Math.max(10,Math.min(T*.42,12));cx.font='700 '+fs2+'px "Barlow Condensed",system-ui,sans-serif';cx.lineWidth=3;cx.strokeStyle='rgba(10,16,22,.9)';cx.strokeText(orig[m]?orig[m].n:NAME[m],X+w2/2,Y+h2+fs2*.8);cx.fillStyle='#fff';cx.fillText(orig[m]?orig[m].n:NAME[m],X+w2/2,Y+h2+fs2*.8)}}
   drawRings();
  }
  cx.restore();
@@ -1047,7 +1162,7 @@ function menuView(v){
 /* ---- Multiplayer: Supabase Realtime broadcast. The host runs the whole simulation; guests send actions and render snapshots. ---- */
 const SB_URL='https://urhjjkjmrhfqaspmwxgz.supabase.co',SB_KEY='sb_publishable_K4QbGMQf1gchU1xtXYO_qA_xBFSyMh9';
 const myId=(()=>{try{let v=sessionStorage.getItem('tcid');if(!v){v=Math.random().toString(36).slice(2,10);sessionStorage.setItem('tcid',v)}return v}catch(e){return Math.random().toString(36).slice(2,10)}})();
-const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),cleanName=t=>String(t||'').replace(/[<>&"'`]/g,'').trim().slice(0,12)||'Player',cleanFlag=v=>(((parseInt(v)||0)%FLAGS.length)+FLAGS.length)%FLAGS.length;
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),cleanName=t=>String(t||'').replace(/[<>&"'`]/g,'').trim().slice(0,12)||'Player',cleanFlag=v=>(((parseInt(v)||0)%NF)+NF)%NF;
 function enc(a){let s='',p=a[0],n=0;for(let i=0;i<a.length;i++){if(a[i]===p)n++;else{s+=p.toString(36)+n.toString(36)+'.';p=a[i];n=1}}return s+p.toString(36)+n.toString(36)+'.'}
 function dec(s,len){const o=new Uint8Array(len);let k=0;for(const r of String(s).split('.')){if(!r)continue;const v=parseInt(r[0],36),n=parseInt(r.slice(1),36);if(k+n>len)break;o.fill(v,k,k+n);k+=n}return o}
 function netSend(ev,payload){try{if(net&&net.ch){const r=net.ch.send({type:'broadcast',event:ev,payload});if(r&&r.catch)r.catch(()=>{})}}catch(e){console.error(e)}}
@@ -1055,7 +1170,7 @@ function netErr(t){const e=$('#mn');if(e)e.textContent=t;else flash(t)}
 function netConnect(code,ready){
  if(!window.supabase){netErr('Multiplayer library failed to load. Check your connection.');return null}
  const sb=window.__sb||(window.__sb=window.supabase.createClient(SB_URL,SB_KEY,{realtime:{params:{eventsPerSecond:20}}})),ch=sb.channel('tc-'+code,{config:{broadcast:{self:false}}});
- for(const ev of['hello','lobby','start','snap','act','mis','aa','nw','pickmap','pk','closed','end','bye'])ch.on('broadcast',{event:ev},m=>{try{onMsg(ev,(m&&m.payload)||{})}catch(e){console.error(e)}});
+ for(const ev of['hello','lobby','start','snap','act','mis','msgr','aa','nw','pickmap','pk','closed','end','bye'])ch.on('broadcast',{event:ev},m=>{try{onMsg(ev,(m&&m.payload)||{})}catch(e){console.error(e)}});
  ch.subscribe(st2=>{if(st2==='SUBSCRIBED')ready();else if(st2==='CHANNEL_ERROR'||st2==='TIMED_OUT')netErr('Could not reach the room server. Is Realtime enabled in Supabase?')});
  return ch
 }
@@ -1064,7 +1179,7 @@ try{window.addEventListener('pagehide',()=>{if(net)netLeave()})}catch(e){}
 function netSendOn(n,ev,payload){try{const r=n.ch.send({type:'broadcast',event:ev,payload});if(r&&r.catch)r.catch(()=>{})}catch(e){}}
 function mpCreate(){
  const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let code='';for(let i=0;i<4;i++)code+=A[(Math.random()*A.length)|0];
- netLeave();net={role:'host',code,id:myId,seat:1,players:[{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),seen:0}],map:'random',started:false,drawing:false,roster:null,lastSnap:0,bc:Z(),gid:'',elim:0,fill:0};bots=false;
+ netLeave();net={role:'host',code,id:myId,seat:1,players:[{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),seen:0}],map:'random',started:false,drawing:false,roster:null,lastSnap:0,bc:Z(),gid:'',elim:0,fill:0,n:3};bots=false;
  netErr('Connecting...');
  net.ch=netConnect(code,()=>{if(!net)return;menuView('lobby');net.tick=setInterval(()=>{if(!net)return;if(!net.started){const t=performance.now();net.players=net.players.filter(x=>x.id===myId||t-x.seen<8000)}sendLobby()},2000)});
  if(!net.ch)net=null
@@ -1077,13 +1192,13 @@ function mpJoin(){
  if(!net.ch)net=null
 }
 function sendHello(){if(net)netSend('hello',{id:myId,n:cleanName(me.n),f:cleanFlag(me.f),have:net.gid||''})}
-function lobbyMsg(){return{code:net.code,players:net.players.map(x=>({id:x.id,n:x.n,f:x.f})),map:net.map,diff,fill:net.fill?1:0,started:net.started,drawing:net.drawing}}
+function lobbyMsg(){return{n:net.n||3,code:net.code,players:net.players.map(x=>({id:x.id,n:x.n,f:x.f})),map:net.map,diff,fill:net.fill?1:0,started:net.started,drawing:net.drawing}}
 function sendLobby(){if(net&&net.role==='host')netSend('lobby',lobbyMsg())}
 function lobbyHTML(){
  const host=net.role==='host',L=host?lobbyMsg():(net.lobby||{players:[],map:'random',diff:1,code:net.code});
  let h=`<p>Room code</p><h1 style="letter-spacing:8px;margin:0">${esc(L.code)}</h1><p>Share this code with your brothers</p>`;
  for(let i=0;i<3;i++){const x=L.players[i];h+=x?`<div class="pr"><canvas data-pf="${cleanFlag(x.f)}" width="36" height="24"></canvas>${esc(cleanName(x.n))}${i===0?' (host)':''}</div>`:`<div class="pr" style="opacity:.5">Empty seat${L.fill?' (bot)':''}</div>`}
- if(host)h+=`<p>Map</p><div class="seg">${[['random','Random'],['world','World'],['long','Long'],['draw','Draw']].map(k=>`<button data-a="mpmap" data-t="${k[0]}" class="${L.map===k[0]?'on':''}">${k[1]}</button>`).join('')}</div><p>Bot fill (bots take empty seats)</p><div class="seg">${['Off','On'].map((k,i)=>`<button data-a="mpfill" data-t="${i}" class="${(L.fill?1:0)===i?'on':''}">${k}</button>`).join('')}</div>${L.fill?`<p>Bot difficulty</p><div class="seg">${['Easy','Normal','Hard'].map((k,i)=>`<button data-a="mpdiff" data-t="${i}" class="${diff===i?'on':''}">${k}</button>`).join('')}</div>`:`<p>${L.players.length<2?'Waiting for a second player (or turn Bot fill on)':'Starts as a '+L.players.length+'-player game'}</p>`}<button class="pri" data-a="mpstart">Start game</button>`;
+ if(host)h+=`<p>Map</p><div class="seg">${[['random','Random'],['world','World'],['long','Long'],['draw','Draw']].map(k=>`<button data-a="mpmap" data-t="${k[0]}" class="${L.map===k[0]?'on':''}">${k[1]}</button>`).join('')}</div><p>Bot fill (bots take empty seats)</p><div class="seg">${['Off','On'].map((k,i)=>`<button data-a="mpfill" data-t="${i}" class="${(L.fill?1:0)===i?'on':''}">${k}</button>`).join('')}</div>${L.fill?`<p>Total countries (humans + bots)${(L.n||3)>3?' - uses the Long map':''}</p><div class="seg">${[3,5,8,12,16].map(k=>`<button data-a="mpn" data-t="${k}" class="${(L.n||3)===k?'on':''}">${k}</button>`).join('')}</div><p>Bot difficulty</p><div class="seg">${['Easy','Normal','Hard'].map((k,i)=>`<button data-a="mpdiff" data-t="${i}" class="${diff===i?'on':''}">${k}</button>`).join('')}</div>`:`<p>${L.players.length<2?'Waiting for a second player (or turn Bot fill on)':'Starts as a '+L.players.length+'-player game'}</p>`}<button class="pri" data-a="mpstart">Start game</button>`;
  else h+=`<p>${L.drawing?'The host is drawing the map...':'Waiting for the host to start...'}</p>`;
  return h+'<button data-a="mpleave">Leave</button><p id="mn"></p>'
 }
@@ -1097,11 +1212,11 @@ function hostPick(){
  flash(longG?'LONG GAME: tap where your country starts. Bots pick for themselves.':'Tap on land to choose where you start. Bots pick for themselves.',5000);
  clearTimeout(net.pickT);net.pickT=setTimeout(()=>{if(net&&net.picking)hostFinishPick()},90000)
 }
-function beginGuestPick(p){NP=3;rtBots=false;
- const r=Array.isArray(p.r)?p.r:[],i=r.findIndex(x=>x&&x.id===myId);if(i<0)return;
- net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0,sp:x.sp?1:0}));net.seat=i+1;spare=[0,...net.roster.map(x=>x.sp)];
+function beginGuestPick(p){rtBots=false;
+ const r=(Array.isArray(p.r)?p.r:[]).slice(0,16),i=r.findIndex(x=>x&&x.id===myId);if(i<0)return;NP=Math.max(3,r.length);
+ net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0,sp:x.sp?1:0}));net.seat=i+1;spare=Z().map((v,k)=>k>=1&&k<=NP?(net.roster[k-1].sp|0):0);
  setGrid(p.W|0,p.H|0);longG=!!p.lg;if(p.lw&&W===LW.W&&H===LW.H)loadCountries();setPois(p.po);terr.set(Uint8Array.from(String(p.t),c=>+c));lm.fill(0);{const L=p.l||[];for(let k=0;k+1<L.length;k+=2)lm[L[k]]=(L[k+1]|0)&3}
- botSeat=[0,...net.roster.map(x=>x.bot)];assign();net.picking=true;net.picks=p.pk||{};net.started=false;
+ botSeat=Z().map((v,k)=>k>=1&&k<=NP?(net.roster[k-1].bot|0):0);assign();net.picking=true;net.picks=p.pk||{};net.started=false;
  $('#menu').hidden=true;win.hidden=true;hideCard();cur=net.seat;mode='pick';ui();hint();
  if(longG)flash('LONG GAME: tap where your country starts. Zoom with pinch / scroll.',5000)
 }
@@ -1112,6 +1227,20 @@ function recordPick(seat,x,y){
  for(const q in net.picks){if(+q!==seat&&Math.hypot(net.picks[q][0]-x,net.picks[q][1]-y)<6){if(seat===1)flash('Too close to another player.',2200);return}}
  net.picks[seat]=[x,y];netSend('pk',{pk:net.picks});hint();
  if(humanSeats().every(q=>net.picks[q]))hostFinishPick()
+}
+let pickSel=null,pickTap=null;
+function selectPick(tx,ty){
+ if(!inb(tx,ty)||terr[idx(tx,ty)]!==1){if(inb(tx,ty)&&poiMap&&poiMap[idx(tx,ty)])poiTap(idx(tx,ty));else flash('Tap on land to choose your start.',1800);return}
+ if(poiMap&&poiMap[idx(tx,ty)]){poiTap(idx(tx,ty));return}
+ if(longG&&comp(tx,ty).reduce((a,v)=>a+v,0)<500){flash('That island is too small. Pick a bigger landmass.',2500);return}
+ if(net&&net.picks)for(const q in net.picks){if(+q!==net.seat&&Math.hypot(net.picks[q][0]-tx,net.picks[q][1]-ty)<6){flash('Too close to another player.',2200);return}}
+ pickSel={x:tx,y:ty};if(pois.length)flash(nearDesc(tx,ty),3200);ui()
+}
+function confirmPick(){
+ const c=pickSel;if(!c)return;pickSel=null;
+ if(net){if(net.role==='host')recordPick(1,c.x,c.y);else{netSend('act',{id:myId,a:{type:'cap',x:c.x,y:c.y}});net.picks=Object.assign({},net.picks,{[net.seat]:[c.x,c.y]})}}
+ else pickCap(c.x,c.y);
+ ui();hint()
 }
 function hostFinishPick(){
  if(!net||net.role!=='host'||!net.picking)return;net.picking=false;clearTimeout(net.pickT);
@@ -1131,14 +1260,19 @@ function fixConn(){
  for(let h=0;h<q.length;h++){const i=q[h],x=i%W,y=(i/W)|0;for(const d of[[1,0],[-1,0],[0,1],[0,-1]]){const a=x+d[0],b=y+d[1];if(inb(a,b)){const j=idx(a,b);if(!seen[j]&&terr[j]){seen[j]=1;q.push(j)}}}}
  for(let p=2;p<=NP;p++){const c=caps[p];if(seen[idx(c.x,c.y)])continue;const L=q.filter(i=>terr[i]===1&&!lm[i]&&(poiMap?!poiMap[i]:1)&&PL().every(o=>o===p||!caps[o]||Math.hypot(caps[o].x-i%W,caps[o].y-((i/W)|0))>8));if(L.length){const i=L[(Math.random()*L.length)|0];caps[p]={x:i%W,y:(i/W)|0}}}
 }
-function drawPicks(){if(!net||!net.picks)return;for(const q in net.picks){const c=net.picks[q],fw=Math.max(20,T*4),fh=fw*2/3,x=(c[0]+.5)*T,y=(c[1]+.5)*T;
+function drawPicks(){
+ if(pickSel){const x=(pickSel.x+.5)*T,y=(pickSel.y+.5)*T,fw=Math.max(22,T*4),fh=fw*2/3,pu=(Math.sin(now/220)+1)/2;
+  cx.save();cx.beginPath();cx.arc(x,y,Math.max(6,T*(1.6+pu*.8)),0,7);cx.strokeStyle='#e0b422';cx.lineWidth=Math.max(2,T*.25);cx.setLineDash([6,5]);cx.stroke();cx.setLineDash([]);
+  cx.fillStyle='#e0b422';cx.beginPath();cx.arc(x,y,Math.max(3,T*.5),0,7);cx.fill();flag(cx,FL[net?net.seat:1],x-fw/2,y-fh-Math.max(10,T*1.6),fw,fh);cx.restore()}
+ if(!net||!net.picks)return;for(const q in net.picks){const c=net.picks[q],fw=Math.max(20,T*4),fh=fw*2/3,x=(c[0]+.5)*T,y=(c[1]+.5)*T;
  cx.fillStyle='rgba(10,16,22,.9)';cx.beginPath();cx.arc(x,y,Math.max(3,T*.5),0,7);cx.fill();flag(cx,FL[q],x-fw/2,y-fh-6,fw,fh)}}
-function hostBegin(){NP=3;rtBots=false;
+function hostBegin(){rtBots=false;
  if(!net||net.role!=='host')return;
  if(net.players.length<2&&!net.fill)return netErr('Need a second player, or turn Bot fill on');
- const R=[],used=new Set();for(const pl of net.players){let f=pl.f;while(used.has(f))f=(f+1)%FLAGS.length;used.add(f);R.push({id:pl.id,n:pl.n,f,bot:0})}
- let bi=0;while(R.length<3){let f=0;while(used.has(f))f++;used.add(f);R.push(net.fill?{id:null,n:BN[bi++],f,bot:1}:{id:null,n:'Empty',f,bot:0,sp:1})}
- net.roster=R;botSeat=[0,R[0].bot,R[1].bot,R[2].bot];spare=[0,R[0].sp|0,R[1].sp|0,R[2].sp|0];net.bc=[0,2,2,2];$('#menu').hidden=true;
+ NP=net.fill?Math.max(3,Math.min(16,net.n||3)):3;if(NP>3)net.map='long';
+ const R=[],used=new Set();for(const pl of net.players){let f=pl.f;while(used.has(f))f=(f+1)%NF;used.add(f);R.push({id:pl.id,n:pl.n,f,bot:0})}
+ let bi=0;while(R.length<NP){let f=0;while(used.has(f))f++;used.add(f);R.push(net.fill?{id:null,n:BN[bi++],f,bot:1}:{id:null,n:'Empty',f,bot:0,sp:1})}
+ net.roster=R;botSeat=Z().map((v,i)=>i>=1&&i<=NP&&R[i-1].bot?1:0);spare=Z().map((v,i)=>i>=1&&i<=NP?(R[i-1].sp|0):0);net.bc=Z().map(()=>2);$('#menu').hidden=true;
  if(net.map==='draw'){net.drawing=true;sendLobby();longG=false;longSize=false;setGrid(...customGrid());mode='edit';tool=1;ui();hint();return}
  net.drawing=false;setGrid(...customGrid());
  longG=false;longSize=false;
@@ -1148,7 +1282,8 @@ function hostBegin(){NP=3;rtBots=false;
 }
 function startMsg(){const l=[];for(let i=0;i<W*H;i++)if(lm[i])l.push(i,lm[i]);return{gid:net.gid,W,H,t:Array.from(terr).join(''),l,c:PL().map(q=>[caps[q].x,caps[q].y]),r:net.roster,o:enc(own),s:PL().map(q=>Math.floor(sol[q])),a:alive.slice(1,NP+1).join(''),w:won,aa:aaList(),fm:farmList(),lg:longG?1:0,lw:cid?1:0,po:poiEnc(),rv:rgv,rg:regions.map(encRg)}}
 function hostStarted(){net.gid=Math.random().toString(36).slice(2,8);net.started=true;net.drawing=false;net.lastSnap=0;netSend('start',startMsg());sendLobby()}
-function sendSnap(){netSend('snap',{g:net.gid,o:enc(own),s:PL().map(q=>Math.floor(sol[q])),a:alive.slice(1,NP+1).join(''),w:won,aa:aaList(),fm:farmList(),da:defAuto.join(''),mc:PL().map(q=>Math.max(0,Math.round(mcdU[q]-now))),mr:PL().map(mRecent),dp:[[1,2],[1,3],[2,3]].map(e=>[e[0],e[1],dipS[e[0]][e[1]],Math.max(0,Math.round(dipE[e[0]][e[1]]-now))]),pr:props.map(x=>[x.a,x.b,x.k,Math.max(0,Math.round(x.exp-now)),x.nm||'',x.fg||'']),un:uniOf.slice(1,NP+1),ct:ctl.slice(1,NP+1),sb:uniOf.some(v=>v)?enc(sub):'',nf:PL().map(q=>[NAME[q],FLS[q]||('f'+FL[q]),OC[q]]),on:PL().map(q=>orig[q]?[orig[q].n,orig[q].f,orig[q].c]:0),rv:rgv,at:curAt().map(e=>[e.p,e.q,Math.floor(e.f),e.vn||'']),rg:(rgv!==net.rgs||now-(net.rgt||0)>3000)?regions.map(encRg):undefined})&&0;net.rgs=rgv;if(!net.rgt||now-net.rgt>3000)net.rgt=now}
+function dpList(){const L=[];for(let a=1;a<=NP;a++)for(let b=a+1;b<=NP;b++)if(dipS[a][b])L.push([a,b,dipS[a][b],Math.max(0,Math.round(dipE[a][b]-now))]);return L}
+function sendSnap(){netSend('snap',{g:net.gid,o:enc(own),s:PL().map(q=>Math.floor(sol[q])),a:alive.slice(1,NP+1).join(''),w:won,aa:aaList(),fm:farmList(),da:defAuto.join(''),mc:PL().map(q=>Math.max(0,Math.round(mcdU[q]-now))),mr:PL().map(mRecent),dp:dpList(),pr:props.map(x=>[x.a,x.b,x.k,Math.max(0,Math.round(x.exp-now)),x.nm||'',x.fg||'']),un:uniOf.slice(1,NP+1),ct:ctl.slice(1,NP+1),nf:PL().map(q=>[NAME[q],FLS[q]||('f'+FL[q]),OC[q]]),on:PL().map(q=>orig[q]?[orig[q].n,orig[q].f,orig[q].c]:0),rv:rgv,at:curAt().map(e=>[e.p,e.q,Math.floor(e.f),e.vn||'']),rg:(rgv!==net.rgs||now-(net.rgt||0)>3000)?regions.map(encRg):undefined})&&0;net.rgs=rgv;if(!net.rgt||now-net.rgt>3000)net.rgt=now}
 function netTick(t){
  if(!net||!net.started)return;
  if(net.role==='host'){if(t-net.lastSnap>200){net.lastSnap=t;sendSnap()}}
@@ -1168,31 +1303,30 @@ function hostAct(p){
  else if(a.type==='region'){if(!longG||!Array.isArray(a.t))return;reduce({type:'region',p:seat,n:a.n,k:a.k,t:a.t})}
  else if(a.type==='defend'){reduce({type:'defend',p:seat,auto:a.auto?1:0,amt:Math.floor(+a.amt)||0})}
  else if(a.type==='regedit'){reduce({type:'regedit',p:seat,id:a.id|0,n:a.n,k:a.k})}
- else if(a.type==='dip'){reduce({type:'dip',p:a.op==='sec'?real:seat,to:a.to|0,op:String(a.op),nm:a.nm,fg:a.fg})}
+ else if(a.type==='dip'){reduce({type:'dip',p:a.op==='sec'?real:seat,to:a.to|0,op:String(a.op),nm:a.nm,fg:a.fg,tx:a.tx,n:a.n})}
  else if(a.type==='regdel'){reduce({type:'regdel',p:seat,id:a.id|0})}
 }
-function beginGuest(p){NP=3;rtBots=false;
- const r=Array.isArray(p.r)?p.r:[],i=r.findIndex(x=>x&&x.id===myId);
+function beginGuest(p){rtBots=false;
+ const r=(Array.isArray(p.r)?p.r:[]).slice(0,16),i=r.findIndex(x=>x&&x.id===myId);if(i>=0)NP=Math.max(3,r.length);
  if(i<0){netLeave();menuView('mp');netErr('That game already started.');return}
- net.gid=p.gid;net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0,sp:x.sp?1:0}));net.seat=i+1;spare=[0,...net.roster.map(x=>x.sp)];
+ net.gid=p.gid;net.roster=r.map(x=>({id:x.id,n:cleanName(x.n),f:cleanFlag(x.f),bot:x.bot?1:0,sp:x.sp?1:0}));net.seat=i+1;spare=Z().map((v,k)=>k>=1&&k<=NP?(net.roster[k-1].sp|0):0);
  setGrid(p.W|0,p.H|0);longG=!!p.lg;if(p.lw&&W===LW.W&&H===LW.H)loadCountries();setPois(p.po);terr.set(Uint8Array.from(String(p.t),c=>+c));lm.fill(0);{const L=p.l||[];for(let k=0;k+1<L.length;k+=2)lm[L[k]]=(L[k+1]|0)&3}
- caps=[null,...p.c.map(c=>({x:c[0],y:c[1]}))];botSeat=[0,...net.roster.map(x=>x.bot)];assign();
+ caps=Z().map(()=>null);p.c.forEach((c,k)=>{if(k<NP)caps[k+1]={x:c[0],y:c[1]}});botSeat=Z().map((v,k)=>k>=1&&k<=NP?(net.roster[k-1].bot|0):0);assign();
  $('#menu').hidden=true;win.hidden=true;hideCard();
- own.set(dec(p.o,W*H));sol=[0,...p.s.map(Number)];alive=[0,...[0,1,2].map(k=>+p.a[k]?1:0)];attacks=[];missiles=[];fx=[];sprites=[];pops=[];ints=[];ifx=[];aaArm=false;setAAs(p.aa||[],true);farms=[];farmArm=false;setFarms(p.fm||[],true);setRegions(p.rg||[],p.rv|0);fullSync=true;setTimeout(lmTip,600);armed=false;pend=null;won=p.w|0;cur=net.seat;mode='play';net.started=true;net.warned=false;net.elim=0;net.lastSnapAt=performance.now();
+ own.set(dec(p.o,W*H));sol=Z();p.s.forEach((v,k)=>{if(k<NP)sol[k+1]=+v});alive=Z();for(let k=0;k<NP;k++)alive[k+1]=+p.a[k]?1:0;attacks=[];missiles=[];fx=[];sprites=[];pops=[];ints=[];ifx=[];aaArm=false;setAAs(p.aa||[],true);farms=[];farmArm=false;setFarms(p.fm||[],true);setRegions(p.rg||[],p.rv|0);fullSync=true;setTimeout(lmTip,600);armed=false;pend=null;won=p.w|0;cur=net.seat;mode='play';net.started=true;net.warned=false;net.elim=0;net.lastSnapAt=performance.now();
  stats();for(let q=1;q<=NP;q++)pos[q]={x:st.tx[q],y:st.ty[q]};focusStart();ui();hint()
 }
 function applySnap(p){
  net.lastSnapAt=performance.now();if(net.warned){net.warned=false;hint()}
  const o=dec(p.o,W*H),fl=[];
  for(let i=0;i<o.length;i++)if(o[i]!==own[i]){ft[i]=now;if(o[i])fl.push(i);own[i]=o[i]}
- for(let k=1;k<4;k++){sol[k]=+p.s[k-1]||0;alive[k]=+p.a[k-1]?1:0}
- setAAs(p.aa||[]);setFarms(p.fm||[]);{const d=String(p.da||'0000');const ch=d!==defAuto.join('');defAuto=[0,1,2,3].map(k=>+d[k]|0);if(ch)ui()}atkSnap=(p.at||[]).map(e=>({p:e[0]|0,q:e[1]|0,f:+e[2]||0,vn:String(e[3]||'')}));if(p.rg&&p.rv!==rgv)setRegions(p.rg,p.rv|0);
+ for(let k=1;k<=NP;k++){sol[k]=+p.s[k-1]||0;alive[k]=+p.a[k-1]?1:0}
+ setAAs(p.aa||[]);setFarms(p.fm||[]);{const d=String(p.da||'');const ch=d!==defAuto.join('');defAuto=Z().map((v,k)=>+d[k]|0);if(ch)ui()}atkSnap=(p.at||[]).map(e=>({p:e[0]|0,q:e[1]|0,f:+e[2]||0,vn:String(e[3]||'')}));if(p.rg&&p.rv!==rgv)setRegions(p.rg,p.rv|0);
  if(p.mc)for(let q=1;q<=NP;q++){mcdU[q]=now+(p.mc[q-1]|0);mrcS[q]=p.mr?p.mr[q-1]|0:0}
- if(p.dp)for(const e of p.dp)setPact(e[0]|0,e[1]|0,e[2]|0,now+(e[3]|0));
+ if(p.dp){for(let a=1;a<=NP;a++)for(let b=a+1;b<=NP;b++)setPact(a,b,0,0);for(const e of p.dp)if((e[0]|0)>=1&&(e[0]|0)<=NP&&(e[1]|0)>=1&&(e[1]|0)<=NP)setPact(e[0]|0,e[1]|0,e[2]|0,now+(e[3]|0))}
  props=(p.pr||[]).map(e=>({a:e[0]|0,b:e[1]|0,k:e[2]|0,exp:now+(e[3]|0),t0:now,nm:String(e[4]||''),fg:String(e[5]||'')}));
  if(p.on)p.on.forEach((o,k)=>{if(o)orig[k+1]={n:cleanRg(o[0]),f:cleanFlag(o[1]),c:/^#[0-9a-fA-F]{6}$/.test(o[2])?o[2]:'#888888'}});
  if(p.un){const prev=uniOf.slice();for(let q=1;q<=NP;q++){uniOf[q]=p.un[q-1]|0;ctl[q]=p.ct?p.ct[q-1]|0:0;if(prev[q]&&!uniOf[q]&&caps[q]){ring(caps[q].x+.5,caps[q].y+.5,OC[q],1.8);boom(caps[q].x+.5,caps[q].y+.5,1.4);shk=now}if(!prev[q]&&uniOf[q]&&caps[q])ring(caps[q].x+.5,caps[q].y+.5,OC[uniOf[q]],1);}}
- if(p.sb!=null){if(p.sb)sub=dec(p.sb,W*H);else if(sub)sub.fill(0)}
  if(p.nf)p.nf.forEach((e,k)=>{const q=k+1;if(!e)return;NAME[q]=cleanRg(e[0]);const key=String(e[1]);if(/^f\d{1,3}$/.test(key)||/^u[0-4]:\d{1,3}:(0|[0-9a-fA-F]{6})$/.test(key)){FL[q]=seatFlag(key);FLS[q]=key}if(/^#[0-9a-fA-F]{6}$/.test(e[2]))OC[q]=e[2]});
  for(let n=0;n<Math.min(2,fl.length);n++){const i=fl[(Math.random()*fl.length)|0];pop(i%W+.5,((i/W)|0)+.5)}
  if(fl.length&&sprites.length<16){const i=fl[(Math.random()*fl.length)|0],q=own[i],x=i%W,y=(i/W)|0,set=new Set(fl);let sx=x,sy=y;for(const d of D4){const a=x+d[0],b=y+d[1];if(inb(a,b)&&own[idx(a,b)]===q&&!set.has(idx(a,b))){sx=a;sy=b;break}}sprites.push({p:q,x0:sx+.5,y0:sy+.5,x1:x+.5,y1:y+.5,t0:now,dur:900+Math.random()*400,rest:1100})}
@@ -1220,6 +1354,7 @@ function onMsg(ev,p){
   else if(ev==='snap'){if(net.started&&p.g===net.gid)applySnap(p)}
   else if(ev==='end'){GS=Object.assign(newGS(),p.gs||{});if(won)showWin(won)}
   else if(ev==='nw'&&net.started)newsAdd(String(p.k),p.a|0,p.b|0,String(p.x||''))
+  else if(ev==='msgr'&&net.started){if(!msgrs.some(m=>m.id===p.id))msgrs.push({id:p.id|0,f:p.f|0,t:p.t|0,x0:+p.x0,y0:+p.y0,x1:+p.x1,y1:+p.y1,t0:performance.now(),dur:+p.dur||9000,tx:String(p.tx||'')})}
   else if(ev==='aa'&&net.started)launchInt(+p.ax,+p.ay,+p.x,+p.y,+p.dur||400,p.mid);
   else if(ev==='mis'&&net.started)missiles.push({s:p.s,x:+p.x,y:+p.y,p:p.p|0,id:p.id,t0:performance.now(),dur:+p.dur||900,ah:+p.ah||0,k:p.k==null?4:p.k|0})
  }
@@ -1250,17 +1385,17 @@ function ui(){
  if(mode==='edit'){
   const tb=(t,l)=>`<button data-a="tool" data-t="${t}" class="${tool==t?'on':''}">${l}</button>`;
   bar.innerHTML=tb(1,'Land')+tb(2,'Water')+tb(0,'Erase')+[[1,'S'],[3,'M'],[5,'L']].map(b=>`<button data-a="brush" data-t="${b[0]}" class="${brush===b[0]?'on':''}">${b[1]}</button>`).join('')+PL().map(q=>tb('c'+q,`<i class="dot" style="background:${OC[q]}"></i>${net?'P'+q:q===1?'You':'Bot '+(q-1)}`)).join('')+tb('m','Mecca')+tb('l','Shatt (land)')+tb('w','Shatt (water)')+`<button data-a="size" class="${longSize?'on':''}">${longSize?'Long game size':'Map size: Normal'}</button>`+'<span class="sp"></span><button data-a="rand">Random</button><button data-a="clear">Clear</button><button data-a="edit">Menu</button><button class="pri" data-a="start">Start</button>'}
- else if(mode==='pick')bar.innerHTML='<span class="chip">Pick your starting place</span><span class="sp"></span><button data-a="edit">'+(net?'Leave':'Menu')+'</button>';
- else bar.innerHTML=`<span class="chip"><i class="dot" style="background:${OC[cur]}"></i>${NAME[cur]}</span><button id="bMis" data-a="mis" class="${armed?'on':''}">Missile ${nf(mCost(hp(),mk))}</button><button id="bAA" data-a="aa" class="${aaArm?'on':''}">Anti-air</button><button id="bFarm" data-a="farm" class="${farmArm?'on':''}">Farm ${FARM_COST}</button><button id="bDef" data-a="defend" class="${defAuto[hp()]?'on':underAtk()?'warn':''}">${defAuto[hp()]?'Defending...':'Defend'}</button>${longG?`<button data-a="rg" class="${rgArm?'on':''}">City/State</button>`:''}${(bots||net)?`<button data-a="dipo" class="${props.some(x=>x.b===hp())?'warn':''}">Diplomacy</button>`:''}`+(pend?`<button class="pri" data-a="go">Conquer (${nf(pend.spend)})</button><button data-a="no">Cancel</button>`:'')+'<span class="sp"></span>'+(longG?`<button data-a="rgshow">${showRg?'Hide':'Show'} Cities/States</button>`:'')+(net?'':`<button data-a="auto" class="${autoEnd?'on':''}">Auto end</button><button data-a="end">End turn</button>`)+'<button data-a="tl">Chart</button><button data-a="set">&#9881;</button><button data-a="edit">'+(net?'Leave':'Menu')+'</button>';
+ else if(mode==='pick')bar.innerHTML=(pickSel?'<span class="chip">Start here?</span><button class="pri" data-a="pkok">Confirm spawn</button><button data-a="pkno">Cancel</button>':'<span class="chip">Tap land, then confirm</span>')+'<span class="sp"></span><button data-a="edit">'+(net?'Leave':'Menu')+'</button>';
+ else bar.innerHTML=`<span class="chip"><i class="dot" style="background:${OC[cur]}"></i>${NAME[cur]}</span><button id="bMis" data-a="mis" class="${armed?'on':''}">Missile ${nf(mCost(hp(),mk))}</button><button id="bAA" data-a="aa" class="${aaArm?'on':''}">Anti-air</button><button id="bFarm" data-a="farm" class="${farmArm?'on':''}">Farm ${FARM_COST}</button><button id="bDef" data-a="defend" class="${defAuto[hp()]?'on':underAtk()?'warn':''}">${defAuto[hp()]?'Defending...':'Defend'}</button>${longG?`<button data-a="rg" class="${rgArm?'on':''}">City/State</button>`:''}${(bots||net)?`<button data-a="dipo" class="${props.some(x=>x.b===hp())?'warn':''}">${uniOf[mySeat()]?'Union':'Diplomacy'}${props.filter(x=>x.b===hp()).length?' ('+props.filter(x=>x.b===hp()).length+')':''}</button>`:''}`+(pend?`<button class="pri" data-a="go">Conquer (${nf(pend.spend)})</button><button data-a="no">Cancel</button>`:'')+'<span class="sp"></span>'+(longG?`<button data-a="rgshow">${showRg?'Hide':'Show'} Cities/States</button>`:'')+(net?'':`<button data-a="auto" class="${autoEnd?'on':''}">Auto end</button><button data-a="end">End turn</button>`)+'<button data-a="tl">Chart</button><button data-a="set">&#9881;</button><button data-a="edit">'+(net?'Leave':'Menu')+'</button>';
  {const z=$('#zoom');if(z.hidden===(mode==='play'||mode==='pick'||mode==='edit')){z.hidden=!(mode==='play'||mode==='pick'||mode==='edit')}$('#bPan').classList.toggle('on',panMode)}
 }
-function hint(){msg.textContent=mode==='pick'?(net?(net.picks&&net.picks[net.seat]?'Spawn set ('+Object.keys(net.picks).length+'/'+(net.roster.filter(r=>!r.bot&&!r.sp&&r.id).length)+' players ready). Tap elsewhere to move it. Bots choose for themselves.':'Tap land to choose where your country starts. Bots choose for themselves.'):'Tap land to place your capital. Bots start far away.'):mode==='edit'?'Draw your map with the brush, drop landmarks (Mecca, Shatul Arab on land or water), and place all three capitals (you and two bots).':rgArm?'Draw a closed shape inside your own land (a city or a state), then name it. Tap one of your cities/states to rename or delete it.':aaArm?'Tap your land to place anti-air. Troops = cost, more troops = bigger range.':farmArm?'Tap your land next to water to build a farm (+0.5x income).':armed?'Pick a size above, then tap a target. '+MT[mk].n+': radius '+mr(mk).toFixed(1)+' tiles, '+Math.round(MT[mk].d*100*10)/10+'% capital damage.':'Set troops below, then drag from your border to draw a zone. Tap a capital to inspect it.'}
+function hint(){if(mode!=='pick')pickSel=null;msg.textContent=mode==='pick'?(pickSel?'Press Confirm spawn to start here, or tap somewhere else.':net?(net.picks&&net.picks[net.seat]?'Spawn set ('+Object.keys(net.picks).length+'/'+(net.roster.filter(r=>!r.bot&&!r.sp&&r.id).length)+' players ready). Tap elsewhere to move it. Bots choose for themselves.':'Tap land to choose where your country starts. Bots choose for themselves.'):'Tap land to place your capital. Bots start far away.'):mode==='edit'?'Draw your map with the brush, drop landmarks (Mecca, Shatul Arab on land or water), and place all three capitals (you and two bots).':rgArm?'Draw a closed shape inside your own land (a city or a state), then name it. Tap one of your cities/states to rename or delete it.':aaArm?'Tap your land to place anti-air. Troops = cost, more troops = bigger range.':farmArm?'Tap your land next to water to build a farm (+0.5x income).':armed?'Pick a size above, then tap a target. '+MT[mk].n+': radius '+mr(mk).toFixed(1)+' tiles, '+Math.round(MT[mk].d*100*10)/10+'% capital damage.':'Set troops below, then drag from your border to draw a zone. Tap a capital to inspect it.'}
 function flash(t,ms){msg.textContent=t;setTimeout(hint,ms||2400)}
 function showCard(p){cardP=p;card.innerHTML=`<canvas id="cf" width="36" height="24"></canvas><div><b>${NAME[p]}${p===cur?' (you)':''}</b><br>Soldiers <span id="cs"></span><br>Land <span id="cl"></span><br>Income <span id="ci"></span></div>`;card.hidden=false;flag($('#cf').getContext('2d'),FL[p],0,0,36,24)}
 function hideCard(){cardP=0;card.hidden=true}
 function act(a,t){
  if(bots&&mode==='play'&&cur!==1&&(a==='go'||a==='mis'||a==='aa'||a==='farm'||a==='rg'||a==='end'))return;
- const M={play:()=>menuView('play'),flags:()=>menuView('flags'),back:()=>menuView('main'),multi:()=>menuView('mp'),mpcreate:()=>mpCreate(),mpjoin:()=>mpJoin(),mpleave:()=>{netLeave();menuView('main')},badges:()=>menuView('badges'),mpstart:()=>hostBegin(),mpmap:()=>{if(net&&net.role==='host'){net.map=t;sendLobby();menuView('lobby')}},mpfill:()=>{if(net&&net.role==='host'){net.fill=+t?1:0;sendLobby();menuView('lobby')}},mpdiff:()=>{if(net&&net.role==='host'){diff=+t;sendLobby();menuView('lobby')}},
+ const M={play:()=>menuView('play'),flags:()=>menuView('flags'),back:()=>menuView('main'),multi:()=>menuView('mp'),mpcreate:()=>mpCreate(),mpjoin:()=>mpJoin(),mpleave:()=>{netLeave();menuView('main')},badges:()=>menuView('badges'),mpstart:()=>hostBegin(),mpmap:()=>{if(net&&net.role==='host'){net.map=t;if(t!=='long')net.n=Math.min(net.n||3,3);sendLobby();menuView('lobby')}},mpfill:()=>{if(net&&net.role==='host'){net.fill=+t?1:0;sendLobby();menuView('lobby')}},mpn:()=>{if(net&&net.role==='host'){net.n=Math.max(3,Math.min(16,+t||3));if(net.n>3&&net.map!=='long')net.map='long';sendLobby();menuView('lobby')}},mpdiff:()=>{if(net&&net.role==='host'){diff=+t;sendLobby();menuView('lobby')}},
   map:()=>{mapType=t;menuView('play')},botn:()=>{botN=+t;menuView('play')},diff:()=>{diff=+t;menuView('play')},
   saveflag:()=>{me.n=($('#nm').value||'').trim().slice(0,12)||'Player';try{localStorage.setItem('tc3',JSON.stringify(me))}catch(e){}menuView('main')},
   max:()=>{tpct=100;replan()},cont:()=>{$('#menu').hidden=true;bots=true;NP=botN>2?botN+1:3;rtBots=NP>3;if(NP>3)mapType='long';assign();longG=false;longSize=false;if(mapType==='long'){buildLong();mode='pick'}else if(mapType==='world'){buildWorld();mode='pick'}else{setGrid(...customGrid());mode='edit'}tool=1;ui();hint();if(mode==='pick'&&longG)flash(NP>3?'MAYHEM: '+(NP-1)+' bots. Pick where you start. Tap the leaderboard to jump to any country. Hold 45% of the world for 60s to win.':'LONG GAME: pick where your tiny country starts. Zoom with pinch / scroll.',7000)}};
@@ -1290,24 +1425,51 @@ function act(a,t){
  else if(a==='set'){$('#set').innerHTML=setHTML();$('#set').hidden=false}
  else if(a==='setx'){if(t in S){S[t]=!S[t];saveSet();$('#set').innerHTML=setHTML()}}
  else if(a==='setc')$('#set').hidden=true
+ else if(a==='pkok')confirmPick()
+ else if(a==='pkno'){pickSel=null;ui();hint()}
  else if(a==='tl'){tlOpen=true;$('#tl').innerHTML=tlHTML();$('#tl').hidden=false;tlDraw()}
  else if(a==='tlm'){tlMode=t==='i'?'i':'n';$('#tl').innerHTML=tlHTML();tlDraw()}
  else if(a==='tlx'){tlOpen=false;$('#tl').hidden=true}
- else if(a==='dipo'){dipForm=null;dipRender();$('#dipo').hidden=false}
- else if(a==='dipf'){const q=String(t).split(':'),k=+q[0],o=+q[1],me=hp();dipForm={k,q:o,spec:'',nm:k===3?('Union of '+NAME[me]).slice(0,18):(NAME[me]+'-'+NAME[o]).slice(0,18)};dipRender()}
- else if(a==='dipc'){dipForm=null;dipRender()}
- else if(a==='dipsend'&&dipForm){const f=dipForm,nm=($('#dipnm').value||'').trim()||f.nm;dispatch({type:'dip',p:hp(),to:f.q,op:f.k===3?'uni':'mrg',nm,fg:f.spec});dipForm=null;setTimeout(dipRender,450);flash('Offer sent to '+NAME[f.q],2200)}
- else if(a==='dips'){dispatch({type:'dip',p:mySeat(),to:+t,op:'sec'});setTimeout(()=>{if(!$('#dipo').hidden)dipRender()},450)}
+ else if(a==='dipo'){const el=$('#dipo');if(el.hidden){dipForm=null;dipOpen=0;el.hidden=false;dipRender(true)}else{el.hidden=true;dipForm=null}}
+ else if(a==='dipt'){dipOpen=dipOpen===+t?0:+t;if(dipForm&&dipForm.q!==dipOpen)dipForm=null;dipRender(true)}
+ else if(a==='dipf'){const q=String(t).split(':'),k=+q[0],o=+q[1],me=hp();dipForm={k,q:o,tx:'',n:0,spec:'',nm:k===3?NAME[o].slice(0,18):(NAME[me]+'-'+NAME[o]).slice(0,18)};dipOpen=o;dipRender(true)}
+ else if(a==='dipc'){dipForm=null;dipRender(true)}
+ else if(a==='msgsend'&&dipForm&&dipForm.k===5){const ta=$('#dipmsg'),tx=cleanMsg(ta?ta.value:dipForm.tx);if(!tx){flash('Write something first',1800);return}if(wcount(ta?ta.value:tx)>MSGW){flash('Max '+MSGW+' words',2000);return}dispatch({type:'dip',p:hp(),to:dipForm.q,op:'msg',tx});flash('\u{1F40E} Messenger sent to '+NAME[dipForm.q],2600);dipForm=null;setTimeout(()=>dipRender(true),350)}
+ else if(a==='sodq'&&dipForm&&dipForm.k===6){const me=hp(),room=Math.max(0,capSol(dipForm.q)-Math.floor(sol[dipForm.q])),mx=Math.max(0,Math.min(Math.floor(sol[me])-1,room));dipForm.n=Math.floor(mx*(+t)/100);dipRender(true)}
+ else if(a==='sodsend'&&dipForm&&dipForm.k===6){const el=$('#dipsol'),n=Math.floor(+(el?el.value:dipForm.n))||0;if(n<1){flash('Enter how many soldiers',1800);return}const q=dipForm.q,room=capSol(q)-Math.floor(sol[q]);if(room<1){flash(NAME[q]+"'s land is full",2400);return}dispatch({type:'dip',p:hp(),to:q,op:'sup',n});flash('\u{1F6E1}\uFE0F Sending '+Math.min(n,room)+' soldiers to '+NAME[q],2600);dipForm=null;setTimeout(()=>dipRender(true),350)}
+ else if(a==='mopen'){openScroll(+t)}
+ else if(a==='mclose'){$('#scr').hidden=true;mbxRender(true)}
+ else if(a==='mreply'){const m=inbox.find(x=>x.id===+t);$('#scr').hidden=true;if(m){const el=$('#dipo');if(el.hidden){el.hidden=false}dipForm={k:5,q:m.f,spec:'',nm:'',tx:'',n:0};dipOpen=m.f;dipRender(true)}}
+ else if(a==='dipsend'&&dipForm){const f=dipForm,nm=($('#dipnm').value||'').trim()||f.nm;dispatch({type:'dip',p:hp(),to:f.q,op:f.k===3?'uni':'mrg',nm,fg:f.spec});dipForm=null;setTimeout(()=>dipRender(true),450);flash('Offer sent to '+NAME[f.q],2200)}
+ else if(a==='dips'){dispatch({type:'dip',p:mySeat(),to:+t,op:'sec'});setTimeout(()=>dipRender(true),450)}
  else if(a==='lbt'){lbOpen=!lbOpen;lbK='';lbTick()}
  else if(a==='lbf'){focusOn(+t)}
  else if(a==='dipx'){$('#dipo').hidden=true;dipForm=null}
- else if(a==='dip'){const q=String(t).split(':');dispatch({type:'dip',p:hp(),to:+q[1],op:q[0]});setTimeout(()=>{if(!$('#dipo').hidden&&!dipForm)dipRender()},450)}
+ else if(a==='dip'){const q=String(t).split(':');dispatch({type:'dip',p:hp(),to:+q[1],op:q[0]});setTimeout(()=>{if(!dipForm)dipRender(true)},450)}
  else if(a==='go'&&pend){const bm=blockMsg(pend.tiles);if(bm){pend=null;flash(bm,3800)}else{dispatch({type:'attack',p:cur,tiles:pend.tiles,d:pend.d,cost:pend.spend,m:pend.m});pend=null;afterAct()}}
  else if(a==='no')pend=null;
  else if(a==='end')return dispatch({type:'end'});
  else if(a==='edit'){netLeave();mode='menu';bots=false;attacks=[];missiles=[];fx=[];sprites=[];aas=[];ints=[];ifx=[];aaArm=false;farms=[];farmArm=false;rgArm=false;rgPend=null;$('#rgd').hidden=true;longG=false;longSize=false;cid=null;hudClear();won=0;win.hidden=true;hideCard();menuView('main')}
  ui();hint()
 }
+
+function openScroll(id){
+ const m=inbox.find(x=>x.id===id);if(!m)return;m.read=1;const el=$('#scr');
+ el.innerHTML=`<div class="sc"><div class="rod"></div><div class="pp"><div class="in"><div class="fr"><img src="${flagUrl(FL[m.f])}"><span>MESSAGE FROM ${esc(NAME[m.f]).toUpperCase()}</span></div><div class="tx">${esc(m.tx)}</div><div class="bt"><button class="g" data-a="mclose">Close</button><button data-a="mreply" data-t="${m.id}">Reply</button></div></div></div><div class="rod"></div></div>`;
+ el.hidden=false;const sc=el.querySelector('.sc'),pp=el.querySelector('.pp'),inn=el.querySelector('.in');
+ void pp.offsetHeight;pp.style.transition='height 1.15s cubic-bezier(.25,.9,.3,1)';pp.style.height=inn.scrollHeight+'px';setTimeout(()=>sc.classList.add('go'),60);
+ mbxRender(true);if(!$('#dipo').hidden)dipRender(true)
+}
+let mbxK='';
+function mbxRender(force){
+ const el=$('#mbx');if(!el)return;if(mode!=='play'||won){el.hidden=true;return}
+ const me=hp(),L=inbox.filter(x=>x.t===me&&!x.read).slice(0,3),k=L.map(x=>x.id).join();
+ if(!force&&k===mbxK)return;mbxK=k;el.hidden=!L.length;
+ el.innerHTML=L.map(x=>`<div class="mi"><img src="${flagUrl(FL[x.f])}"><span><b>${esc(NAME[x.f])}</b> has sent a message</span><button class="pri" data-a="mopen" data-t="${x.id}">Open</button></div>`).join('')
+}
+document.addEventListener('input',e=>{const t=e.target;if(!t||!dipForm)return;
+ if(t.id==='dipmsg'){dipForm.tx=t.value;const w=wcount(t.value),c=$('#dipwc');if(c){c.textContent=w+'/'+MSGW+' words';c.classList.toggle('bad',w>MSGW)}}
+ else if(t.id==='dipsol')dipForm.n=Math.floor(+t.value)||0});
 document.body.addEventListener('click',e=>{const c=e.target.closest('canvas[data-f]');if(c){me.f=+c.dataset.f;document.querySelectorAll('canvas[data-f]').forEach(k=>k.classList.toggle('on',k===c));return}const u=e.target.closest('canvas[data-us]');if(u){if(dipForm){dipForm.spec=u.dataset.us;document.querySelectorAll('canvas[data-us]').forEach(k=>k.classList.toggle('on',k===u))}return}const b=e.target.closest('[data-a]');if(b)act(b.dataset.a,b.dataset.t)});
 
 /* ---- Input: pointer events cover mouse + touch; mouse/touch fallback below for older browsers ---- */
@@ -1320,7 +1482,7 @@ function addPt(x,y){
 }
 function down(x,y){
  const l=loc(x,y);ptr={x:l[2],y:l[3]};const tx=Math.floor(l[0]),ty=Math.floor(l[1]),ok=inb(tx,ty);
- if(mode==='pick'){if(ok&&poiTap(idx(tx,ty)))return;if(ok&&terr[idx(tx,ty)]===1){if(pois.length)flash(nearDesc(tx,ty),3500);if(longG&&comp(tx,ty).reduce((a,v)=>a+v,0)<500)return flash('That island is too small. Pick a bigger landmass.');if(net){if(net.role==='host')recordPick(1,tx,ty);else{netSend('act',{id:myId,a:{type:'cap',x:tx,y:ty}});net.picks=Object.assign({},net.picks,{[net.seat]:[tx,ty]});hint()}}else pickCap(tx,ty)}return}
+ if(mode==='pick'){pickTap={x:l[2],y:l[3],tx,ty,moved:false};return}
  if(mode==='edit'){if(ok){painting=true;paintLast=[tx,ty];paint(tx,ty,false)}return}
  if(won||!ok||!alive[cur]||(bots&&cur!==1))return;hideCard();const i=idx(tx,ty);
  if(aaArm){aaDrag=true;return}
@@ -1334,12 +1496,14 @@ function down(x,y){
 }
 function move(x,y){
  const l=loc(x,y);ptr={x:l[2],y:l[3]};
+ if(pickTap&&Math.hypot(l[2]-pickTap.x,l[3]-pickTap.y)>8)pickTap.moved=true;
  if(mode==='edit'){if(painting){const tx=Math.floor(l[0]),ty=Math.floor(l[1]),n=Math.max(Math.abs(tx-paintLast[0]),Math.abs(ty-paintLast[1]));
   for(let k=1;k<=n;k++){const a=Math.round(paintLast[0]+(tx-paintLast[0])*k/n),b=Math.round(paintLast[1]+(ty-paintLast[1])*k/n);if(inb(a,b))paint(a,b,true)}paintLast=[tx,ty]}return}
  if(tap&&Math.hypot(l[2]-tap.x,l[3]-tap.y)>8)tap.moved=true;
  if(drag)addPt(l[0],l[1])
 }
 function up(){
+ if(mode==='pick'){const t=pickTap;pickTap=null;if(t&&!t.moved)selectPick(t.tx,t.ty);return}
  if(mode==='edit'){painting=false;return}
  if(aaDrag){aaDrag=false;placeAA();return}
  if(drag){const d=drag;drag=null;
@@ -1356,7 +1520,7 @@ function pinchInit(){const a=[...ptrs.values()],r=cv.getBoundingClientRect(),mx=
 function pinchMove(){const a=[...ptrs.values()],r=cv.getBoundingClientRect(),mx=(a[0].x+a[1].x)/2,my=(a[0].y+a[1].y)/2,d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)||1;zm=gest.zm*d/gest.d;T=T0*Math.max(1,zm);zm=T/T0;ox=mx-r.left-gest.wx*T;oy=my-r.top-gest.wy*T;clampCam()}
 if(window.PointerEvent){
  on('pointerdown',e=>{e.preventDefault();try{cv.setPointerCapture(e.pointerId)}catch(_){}const q=P_(e);ptrs.set(e.pointerId,{x:q[0],y:q[1]});
-  if(ptrs.size===2){painting=false;aaDrag=false;drag=null;tap=null;pan=null;ign=true;pinchInit();return}
+  if(ptrs.size===2){painting=false;aaDrag=false;drag=null;tap=null;pickTap=null;pan=null;ign=true;pinchInit();return}
   if(ptrs.size>2||ign)return;
   if(panMode||e.button===1||e.button===2){pan={x:q[0],y:q[1],ox,oy};return}
   down(q[0],q[1])});
